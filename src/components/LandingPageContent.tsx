@@ -5,7 +5,6 @@ function LandingPageContent() {
         <div id="landing-page-body">
             <div id="landing-page-body-content">
                 <div id="landing-page-body-content-center">
-
                     <div id="landing-page-body-content-left-content-header">
                         <p>We understand the importance of community and collaboration in agriculture,
                             and our goal is to provide a space where farmers can come together to share their experiences,
