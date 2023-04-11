@@ -1,7 +1,7 @@
 
 function LoginForm() {
   return (
-    <div>LoginForm</div>
+    <div id="login-form">LoginForm</div>
   )
 }
 

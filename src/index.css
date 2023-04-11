@@ -146,6 +146,58 @@ html {
 }
 /* Landing content styles end */
 
-
 /* Login form styles */
+#login-page {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 100vh;
+  width: 100%;
+  text-align: center;
+}
+
+#login-intro {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+  color: var(--secondary-color);
+  padding: 15px;
+  line-height: 1.5;
+}
+
+.author-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.author-info > img {
+  display: block;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 2px solid var(--secondary-color);
+  margin-bottom: 10px;
+}
+
+#author-stars {
+  color: var(--tertiary-color);
+  padding: 10px;
+}
+
+#author-name {
+  color: var(--secondary-color);
+  font-weight: 400;
+}
+
+.rated-login {
+  padding: 5px;
+}
+
+#login-form {
+  background-color: var(--secondary-color);
+}
 /* Login Form end styles */
