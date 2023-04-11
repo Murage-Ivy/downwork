@@ -67,7 +67,6 @@ html {
   font-weight: 700;
   font-size: 16px;
   cursor: pointer;
-
 }
 
 .btn-primary {
@@ -108,7 +107,6 @@ html {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
- 
 }
 #landing-page-body-content {
   width: 70%;
@@ -123,10 +121,6 @@ html {
   letter-spacing: 2px;
 }
 
-#landing-page-body-content-left-content-header {
- 
-}
-
 #landing-page-body-content-left-content-title {
   color: var(--tertiary-color);
   margin-top: 20px;
@@ -138,7 +132,6 @@ html {
 
 #landing-page-body-content-left-content-body {
   margin-top: 20px;
-  
 }
 
 #landing-page-body-content-btn {
@@ -146,10 +139,13 @@ html {
   display: flex;
   justify-content: center;
   align-items: center;
- 
 }
-#landing-page-body-content-btn > button{
+#landing-page-body-content-btn > button {
   margin: 0 10px;
   background-color: var(--tertiary-color);
 }
 /* Landing content styles end */
+
+
+/* Login form styles */
+/* Login Form end styles */
