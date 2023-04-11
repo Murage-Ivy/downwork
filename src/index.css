@@ -155,6 +155,9 @@ html {
   text-align: center;
 }
 
+#login-content {
+  padding: 10px 10px;
+}
 #login-intro {
   display: flex;
   justify-content: center;
@@ -162,7 +165,6 @@ html {
   flex-direction: column;
   height: 100%;
   color: var(--secondary-color);
-  padding: 15px;
   line-height: 1.5;
 }
 
@@ -199,5 +201,78 @@ html {
 
 #login-form {
   background-color: var(--secondary-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.form {
+  width: 100%;
+  padding: 15px;
+  text-align: left;
+  color: var(--primary-color);
+  font-weight: bold;
+  width: 90%;
+}
+
+.form h3 {
+  margin-bottom: 20px;
+}
+
+.form > p {
+  font-size: 14px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+  padding: 20px;
+  width: 100%;
+}
+
+.form-group > input {
+  display: block;
+  margin-bottom: 10px;
+  width: 80%;
+  padding: 12px;
+  border: 1.5px solid var(--tertiary-color);
+  border-radius: 5px;
+  outline: none;
+}
+
+#form {
+  width: 100%;
+  padding: 15px;
+  text-align: left;
+  color: var(--primary-color);
+  font-weight: bold;
+}
+
+.btn-login {
+  width: 80%;
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  letter-spacing: 2px;
+  box-shadow: 5px 5px 10px #b7b3b3d0, -5px -5px 10px #b7b3b3d0;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  flex-direction: column;
+  padding: 20px;
+}
+
+a {
+  color: var(--tertiary-color);
+  text-decoration: none;
 }
 /* Login Form end styles */
