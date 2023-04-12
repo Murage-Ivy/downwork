@@ -1,12 +1,11 @@
+import { faPaperPlane } from "@fortawesome/free-solid-svg-icons"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+
 const CommentForm: React.FC = () => {
     return (
         <div id="comment-form">
-            <div id="comment-form-header">
-                <h1>Comment Form</h1>
-            </div>
-            <div id="comment-form-body">
-                <h1>Comment Form</h1>
-            </div>
+            <input type="text" placeholder="add comment ..." />
+            <FontAwesomeIcon icon={faPaperPlane} id="comment-icon" />
         </div>
     )
 }

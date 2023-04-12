@@ -1,3 +1,4 @@
+import PostCard from "./PostCard"
 import SearchForm from "./SearchForm"
 
 const PostContainer: React.FC = () => {
@@ -7,7 +8,7 @@ const PostContainer: React.FC = () => {
                 <SearchForm />
             </div>
             <div id="post-container-body">
-                <h1>Post Container</h1>
+                <PostCard />
             </div>
         </div>
     )
