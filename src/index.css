@@ -277,13 +277,86 @@ a {
 }
 /* Login Form end styles */
 
-
 /* Start of Sign up form  styles*/
-#signup-page {
+#signup-form {
   display: grid;
   grid-template-columns: 1fr 1fr;
   height: 100vh;
   width: 100%;
+  text-align: center;
+}
+
+.float-right {
+  float: right;
+  clear: both;
+  padding: 10px;
+}
+.sign-form-group {
+  margin-bottom: 20px;
+  padding: 20px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+}
+
+.sign-form-group > input {
+  border: none;
+  display: block;
+  margin-bottom: 10px;
+  width: 80%;
+  padding: 12px;
+  border-radius: 5px;
+  outline: none;
+  background-color: #d6dbd61d;
+}
+
+#sign-up-btn {
+  width: 80%;
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--tertiary-color);
+  color: var(--primary-color);
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  letter-spacing: 2px;
+  left: 50%;
+  transform: translateX(100%);
+}
+
+#form-signup {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 15px;
+  text-align: left;
+  font-weight: bold;
+  height: 550px;
+}
+
+#form-signup > h1 {
+  margin-bottom: 20px;
+  color: var(--secondary-color);
+  align-self: flex-start;
+  position: relative;
+}
+
+#form-signup > h1::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 3px;
+  background-color: var(--tertiary-color);
+  position: absolute;
+  top: 0.5em;
+  left: 4.5em;
+}
+.sign-footer {
+  color: var(--secondary-color);
   text-align: center;
 }
 /* End of Sign up styles */
