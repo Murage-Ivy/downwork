@@ -1,6 +1,52 @@
+import { faSignOut } from "@fortawesome/free-solid-svg-icons"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { ReactElement } from "react"
+import Logo from "./Logo"
+
 function Sidebar() {
+  const topics: Array<{
+    name: string,
+    image: string
+  }> = [
+      {
+        name: "Vegetables",
+        image: "../assets/images/front-view-smiley-woman-holding-box.jpg"
+      },
+      {
+        name: "Fruits",
+        image: "../assets/images/colorful-fruits-tasty-fresh-ripe-juicy-white-desk.jpg"
+      },
+      {
+        name: "Animals",
+        image: "../assets/images/farm-with-goats.jpg"
+      },
+      {
+        name: "Weeds",
+        image: "../assets/images/AdobeStock_7445262_Preview.jpeg"
+
+      }
+    ]
+
+  const topicsList: Array<ReactElement<HTMLDivElement>> = topics.map((topic, index) => {
+    return (
+      <div className="topic" key={index}>
+        <img src={topic.image} alt={topic.name} />
+        <h4>{topic.name}</h4>
+      </div>
+    )
+  })
+
   return (
-    <div>Sidebar</div>
+    <div id="sidebar">
+      <Logo />
+      <div id="sidebar-content">
+        {topicsList}
+      </div>
+      <div className="logout">
+        <FontAwesomeIcon icon={faSignOut} />
+        <h4>Logout</h4>
+      </div>
+    </div>
   )
 }
 

@@ -3,7 +3,10 @@ import { createSlice } from "@reduxjs/toolkit";
 type initalStateType = {
     user: {
         email: string,
-        password: string
+        password: string,
+        password_confirmation: string,
+        username: string,
+        image: string
     },
     status: string,
     error: string[],
@@ -14,7 +17,11 @@ const initialState = {
 
     user: {
         email: "",
-        password: ""
+        password: "",
+        password_confirmation: "",
+        username: "",
+        image: ""
+
     },
     status: "idle",
     error: [],
