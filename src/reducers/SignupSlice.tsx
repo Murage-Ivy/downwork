@@ -13,7 +13,7 @@ type initalStateType = {
     success: boolean
 }
 
-const initialState = {
+const initialState: initalStateType = {
 
     user: {
         email: "",

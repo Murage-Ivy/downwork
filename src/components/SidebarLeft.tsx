@@ -2,10 +2,10 @@ const LeftSideBar: React.FC = () => {
     return (
         <div id="left-sidebar">
             <div id="left-sidebar-header">
-                <h1>Left Sidebar</h1>
+                <img src="../assets/images/user.png" alt="profile" />
             </div>
             <div id="left-sidebar-body">
-                <h1>Left Sidebar</h1>
+                <button id="add-post-btn">Add Post</button>
             </div>
         </div>
     )
