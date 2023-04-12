@@ -10,3 +10,4 @@ const CommentContainer: React.FC = () => {
         </div>
     )
 }
+export default CommentContainer

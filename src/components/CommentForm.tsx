@@ -10,3 +10,4 @@ const CommentForm: React.FC = () => {
         </div>
     )
 }
+export default CommentForm
