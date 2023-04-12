@@ -9,6 +9,11 @@ const PostContainer: React.FC = () => {
             </div>
             <div id="post-container-body">
                 <PostCard />
+                <PostCard />
+                <PostCard />
+                <PostCard />
+                <PostCard />
+                <PostCard />
             </div>
         </div>
     )

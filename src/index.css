@@ -486,7 +486,12 @@ a {
 /* style of post container */
 #post-container-body {
   height: 80vh;
-  overflow-y: hidden;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  /* box-sizing: content-box; */
+}
+::-webkit-scrollbar {
+  display: none;
 }
 /* end of style container */
 
@@ -501,6 +506,9 @@ a {
   border-radius: 5px;
   background-color: #d6dbd61d;
   margin: 0 auto;
+  padding-right: 17px;
+  box-sizing: content-box;
+  margin-top: 20px;
 }
 
 #post-card-body > img {
@@ -516,7 +524,7 @@ a {
 }
 
 #post-card-footer {
-  display:flex;
+  display: flex;
   justify-content: space-between;
   padding: 10px;
   color: var(--secondary-color);
