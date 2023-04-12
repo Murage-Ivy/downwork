@@ -509,6 +509,7 @@ a {
   padding-right: 17px;
   box-sizing: content-box;
   margin-top: 20px;
+  position: relative;
 }
 
 #post-card-body > img {
@@ -530,3 +531,21 @@ a {
   color: var(--secondary-color);
 }
 /* end of post card styles */
+
+/* style of comment section */
+#comment-container {
+  position: relative;
+  height: 110px;
+  border-radius: 5px;
+}
+
+#comment-container-body {
+  height: 100%;
+  width: 100%;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+/* End of comment section styles */

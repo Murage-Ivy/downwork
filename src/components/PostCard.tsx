@@ -1,5 +1,6 @@
 import { faHeart } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import CommentContainer from "./CommentContainer"
 
 const PostCard: React.FC = () => {
     return (
@@ -18,8 +19,8 @@ const PostCard: React.FC = () => {
                 <div id="post-card-footer-right">
                     <span id="comments">comments</span>
                 </div>
-
             </div>
+            <CommentContainer />
         </div>
     )
 }

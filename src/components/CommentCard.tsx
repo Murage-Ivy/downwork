@@ -1,3 +1,6 @@
+import { faEdit, faTrash } from "@fortawesome/free-solid-svg-icons"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+
 const CommentCard: React.FC = () => {
     return (
         <div id="comment-card">
@@ -5,7 +8,8 @@ const CommentCard: React.FC = () => {
                 <h1>Comment Card</h1>
             </div>
             <div id="comment-card-body">
-                <h1>Comment Card</h1>
+                <FontAwesomeIcon icon={faEdit} />
+                <FontAwesomeIcon icon={faTrash} />
             </div>
         </div>
     )
