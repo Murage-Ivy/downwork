@@ -43,7 +43,7 @@ function Sidebar() {
         {topicsList}
       </div>
       <div className="logout">
-        <FontAwesomeIcon icon={faSignOut} />
+        <FontAwesomeIcon icon={faSignOut}id="logout-icon" />
         <h4>Logout</h4>
       </div>
     </div>

@@ -403,10 +403,11 @@ a {
 }
 
 .logout {
-  display: flex;
-  justify-content: space-around;
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  justify-content: center;
   align-items: center;
-  padding: 20px;
+  padding-top: 20px;
   position: relative;
   cursor: pointer;
 }
@@ -414,11 +415,15 @@ a {
 .logout::after {
   content: "";
   display: block;
-  width: 340px;
+  width: 345px;
   height: 1px;
   background-color: rgb(210, 205, 205);
   position: absolute;
   top: 0.5em;
-  /* left: 4.5em; */
+  left: -0.9em;
+}
+#logout-icon {
+  color: var(--tertiary-color);
+  font-size: 20px;
 }
 /* Sidebar posts ends */
