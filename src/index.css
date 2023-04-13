@@ -430,6 +430,7 @@ a {
   padding: 20px;
   box-shadow: 0 6px 10px 0 rgba(41, 41, 41, 0.14),
     0 1px 18px 0 rgba(0, 0, 0, 0.12), 0 3px 5px -1px rgba(0, 0, 0, 0.4);
+  position: relative;
 }
 
 #left-sidebar-header > img {
@@ -531,10 +532,6 @@ a {
   color: var(--secondary-color);
 }
 
-#post-card-footer-left,
-#comments {
-  cursor: pointer;
-}
 /* end of post card styles */
 
 /* style of comment section */
@@ -608,3 +605,91 @@ a {
   cursor: pointer;
 }
 /* end of comment card styles */
+
+/* style of profile */
+#profile {
+  transform: translateX(3%);
+  position: absolute;
+  top: 12%;
+  left: 0;
+  width: 95%;
+  z-index: 1000;
+  background-color: var(--secondary-color);
+  height: 300px;
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: 0 6px 10px 0 rgba(41, 41, 41, 0.14),
+    0 1px 18px 0 rgba(0, 0, 0, 0.12), 0 3px 5px -1px rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#profile-header > img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 2px solid var(--tertiary-color);
+  position: relative;
+}
+
+#camera {
+  position: absolute;
+  top: 30%;
+  right: 70px;
+  color: var(--tertiary-color);
+}
+
+.profile-icons {
+  color: var(--primary-color);
+  cursor: pointer;
+}
+.email,
+#username {
+  color: var(--primary-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  text-align: center;
+  width: 100%;
+  padding: 10px;
+}
+
+.email {
+  font-size: 13px;
+}
+
+#username {
+  text-decoration: 2px underline var(--primary-color);
+}
+
+.action-profile-btns {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 5px;
+  align-items: center;
+}
+
+.action-profile-btns > button {
+  padding: 5px;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: bold;
+}
+/* end of profile styles */
+
+/* common styles */
+#post-card-footer-left,
+#comments,
+#left-sidebar-header {
+  cursor: pointer;
+}
+/* end of common styles */
