@@ -2,7 +2,6 @@ const PostForm: React.FC = () => {
     return (
         <div id="__overlay">
             <div id="post-form-header">
-                <h3>Create Post</h3>
                 <span id="close-btn">X</span>
 
             </div>
