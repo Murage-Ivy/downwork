@@ -1,11 +1,17 @@
 import { useState } from "react"
 import { ProfileCallBackType } from "../types"
+import PostForm from "./PostForm"
 import Profile from "./Profile"
 
 const LeftSideBar: React.FC = () => {
     const [profile, setProfile] = useState<Boolean>(false)
+    const [postForm, setPostForm] = useState<Boolean>(true)
     const handleProfile: ProfileCallBackType = () => {
         setProfile(prevState => !prevState)
+    }
+
+    const handlePostForm: ProfileCallBackType = () => {
+        setPostForm(prevState => !prevState)
     }
     return (
 
@@ -17,13 +23,12 @@ const LeftSideBar: React.FC = () => {
             {profile && <Profile handleProfile={handleProfile} />}
 
             <div id="left-sidebar-body">
-                <button id="add-post-btn">Add Post</button>
+                <button id="add-post-btn" onClick={handlePostForm} >Add Post</button>
             </div>
 
+            {postForm && <PostForm />}
+
         </div>
-
-
-
     )
 }
 
