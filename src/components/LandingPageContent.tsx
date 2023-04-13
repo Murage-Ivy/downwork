@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 function LandingPageContent() {
     return (
@@ -28,7 +29,7 @@ function LandingPageContent() {
                     </div>
                 </div>
                 <div id="landing-page-body-content-btn">
-                    <button className="btn btn-primary">Get Started</button>
+                    <Link to="/login"><button className="btn btn-primary">Get Started</button></Link>
                 </div>
             </div>
 
