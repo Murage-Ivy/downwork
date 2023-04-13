@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Logo from "./Logo";
 
 const Header: React.FC = () => {
@@ -9,8 +10,8 @@ const Header: React.FC = () => {
             </div>
 
             <div className="auth-btns">
-                <button className="btn btn-primary">Login</button>
-                <button className="btn btn-secondary">Sign Up</button>
+                <Link to="/login"> <button className="btn btn-primary">Login</button></Link>
+                <Link to="/signup"><button className="btn btn-secondary">Sign Up</button></Link>
             </div>
 
 
