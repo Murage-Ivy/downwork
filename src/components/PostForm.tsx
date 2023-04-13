@@ -1,8 +1,15 @@
-const PostForm: React.FC = () => {
+import { ProfileCallBackType } from "../types"
+
+interface PostFormProps {
+    handlePostForm?: ProfileCallBackType
+}
+
+const PostForm: React.FC<PostFormProps> = ({ handlePostForm }) => {
+
     return (
         <div id="__overlay">
             <div id="post-form-header">
-                <span id="close-btn">X</span>
+                <span id="close-btn" onClick={handlePostForm}>X</span>
 
             </div>
             <form id="post-form">
@@ -15,8 +22,8 @@ const PostForm: React.FC = () => {
                     <option value="animals">Animal</option>
                     <option value="weeds">Weeds</option>
                 </select>
-            <button type="submit">Post</button>
-        </form>
+                <button type="submit">Post</button>
+            </form>
 
         </div >
     )

@@ -5,7 +5,7 @@ import Profile from "./Profile"
 
 const LeftSideBar: React.FC = () => {
     const [profile, setProfile] = useState<Boolean>(false)
-    const [postForm, setPostForm] = useState<Boolean>(true)
+    const [postForm, setPostForm] = useState<Boolean>(false)
     const handleProfile: ProfileCallBackType = () => {
         setProfile(prevState => !prevState)
     }
@@ -26,7 +26,7 @@ const LeftSideBar: React.FC = () => {
                 <button id="add-post-btn" onClick={handlePostForm} >Add Post</button>
             </div>
 
-            {postForm && <PostForm />}
+            {postForm && <PostForm handlePostForm={handlePostForm} />}
 
         </div>
     )

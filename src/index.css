@@ -754,7 +754,7 @@ a {
 }
 #post-form-header {
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
   width: 100%;
   align-items: center;
   color: var(--secondary-color);
