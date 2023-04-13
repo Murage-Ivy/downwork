@@ -14,7 +14,7 @@ const PostCard: React.FC = () => {
             <div id="post-card-footer">
                 <div id="post-card-footer-left">
                     <FontAwesomeIcon icon={faHeart} id="heart-icon" />
-                    <span> 0 likes</span>
+                    <span id="likes"> 0 likes</span>
                 </div>
                 <div id="post-card-footer-right">
                     <span id="comments">comments</span>
