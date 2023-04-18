@@ -301,14 +301,15 @@ a {
 }
 
 .sign-form-group > input {
-  border: none;
+  border: 1px solid var(--secondary-color);
   display: block;
   margin-bottom: 10px;
   width: 80%;
   padding: 12px;
   border-radius: 5px;
   outline: none;
-  background-color: #d6dbd61d;
+  color: var(--secondary-color);
+  background-color: transparent;
 }
 
 #sign-up-btn {
@@ -324,6 +325,26 @@ a {
   letter-spacing: 2px;
   left: 50%;
   transform: translateX(100%);
+}
+.floating-label {
+  position: absolute;
+  top: 1.5rem;
+  left: 1rem;
+  transition: all 0.2s ease-in-out;
+  background-color: var(--secondary-color);
+  padding: 0 0.5rem;
+  color: var(--primary-color);
+  font-size: 0.8rem;
+}
+.sign-form-group > input::placeholder {
+  color: transparent;
+}
+
+.sign-form-group > input:focus + .floating-label,
+.sign-form-group > input:not(:placeholder-shown) + .floating-label,
+.sign-form-group > input:required {
+  top: 0.5rem;
+  background-color: var(--tertiary-color);
 }
 
 #form-signup {
