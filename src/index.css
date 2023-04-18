@@ -647,7 +647,7 @@ a {
   cursor: pointer;
 }
 .email,
-#username {
+#profile-username {
   color: var(--primary-color);
   display: flex;
   justify-content: center;
@@ -662,7 +662,7 @@ a {
   font-size: 13px;
 }
 
-#username {
+#profile-username {
   text-decoration: 2px underline var(--primary-color);
 }
 

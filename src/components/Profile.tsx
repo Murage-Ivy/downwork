@@ -14,7 +14,7 @@ function Profile({ handleProfile }: ProfileProps) {
         <FontAwesomeIcon icon={faCamera} className="profile-icons" id="camera" />
       </div>
 
-      <div id="username">
+      <div id="profile-username">
         <h3>John Doe</h3>
         <FontAwesomeIcon icon={faPen} className="profile-icons" />
       </div>
