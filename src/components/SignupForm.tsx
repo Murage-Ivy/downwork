@@ -10,6 +10,7 @@ const SignUp: React.FC = () => {
                     <div className="sign-form-group">
                         <input type="email" name="email" id="email" placeholder="email" autoComplete="email" />
                         <input type="username" name="username" id="username" placeholder="username" autoComplete="username" />
+                     
                     </div>
                     <div className="sign-form-group">
                         <input type="password" name="password" id="password" placeholder="password" autoComplete="current-password" />

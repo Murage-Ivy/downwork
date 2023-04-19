@@ -328,23 +328,22 @@ a {
 }
 .floating-label {
   position: absolute;
-  top: 1.5rem;
+  top: 50%;
   left: 1rem;
-  transition: all 0.2s ease-in-out;
-  background-color: var(--secondary-color);
-  padding: 0 0.5rem;
-  color: var(--primary-color);
-  font-size: 0.8rem;
+  font-size: 13px;
+  color: gray;
+  transform: translateY(-50%);
 }
-.sign-form-group > input::placeholder {
+
+/* .sign-form-group > input::placeholder {
   color: transparent;
-}
+} */
 
 .sign-form-group > input:focus + .floating-label,
 .sign-form-group > input:not(:placeholder-shown) + .floating-label,
 .sign-form-group > input:required {
   top: 0.5rem;
-  background-color: var(--tertiary-color);
+  background-color: var(--secondary-color);
 }
 
 #form-signup {
@@ -561,6 +560,9 @@ a {
   position: relative;
   height: 110px;
   border-radius: 5px;
+  border: 1px solid var(--secondary-color);
+  box-shadow: 0 6px 10px 0 rgba(41, 41, 41, 0.14),
+    0 1px 18px 0 rgba(0, 0, 0, 0.12), 0 3px 5px -1px rgba(0, 0, 0, 0.4);
 }
 
 #comment-container-body {
