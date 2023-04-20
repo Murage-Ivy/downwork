@@ -35,12 +35,12 @@ const SignUp: React.FC = () => {
     }
     const handleSubmit = (event: React.MouseEvent<HTMLFormElement>) => {
         event.preventDefault()
-        const formData = new FormData()
+        // const formData = new FormData()
         const imageFormData = new FormData()
-        formData.append("email", user.email)
-        formData.append("username", user.username)
-        formData.append("password", user.password)
-        formData.append("password_confirmation", user.password_confirmation)
+        // formData.append("email", user.email)
+        // formData.append("username", user.username)
+        // formData.append("password", user.password)
+        // formData.append("password_confirmation", user.password_confirmation)
 
         imageFormData.append("file", user.image!)
         imageFormData.append("upload_preset", upload_preset)
@@ -54,10 +54,10 @@ const SignUp: React.FC = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
-                formData.append("image", data.secure_url)
+                setUser({ ...user, image: data.secure_url })
             })
-
+            .catch(err => console.log(err))
+ 
     }
 
 
@@ -101,7 +101,7 @@ const SignUp: React.FC = () => {
                             onChange={handleChange} />
                     </div>
                     <div className="sign-form-group">
-                        <input type="file" name="image" id="image"  onChange={handleChange}/>
+                        <input type="file" name="image" id="image" onChange={handleChange} />
                     </div>
                     <div className="sign-form-group">
                         <button id="sign-up-btn" type="submit">Sign Up</button>
