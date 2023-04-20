@@ -64,3 +64,6 @@ export const signSlice = createSlice({
             })
     }
 });
+
+export default signSlice.reducer;
+
