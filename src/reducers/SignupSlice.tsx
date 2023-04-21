@@ -1,30 +1,29 @@
 import { PayloadAction, createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { FormDataType } from "../types";
+import { FormDataType, initalStateType } from "../types";
 
 
 
 export const addUser = createAsyncThunk('add/users', async (user: FormDataType, thunkAPI) => {
-    const response = await fetch("https://api.cloudinary.com/v1_1/dhpmstfkj/image/upload", {
+    console.log(user)
+    const response = await fetch("http://localhost:3000/signup", {
         method: "POST",
-        headers: { accept: 'application/json' },
+        headers: { 'Content-Type': 'Application/json' },
         body: JSON.stringify(user)
-
     })
+
+
     const data = await response.json()
     if (response.ok) {
+
         return data
     }
     else {
         return thunkAPI.rejectWithValue(data.errors)
     }
+
 })
 
-type initalStateType = {
-    user: FormDataType,
-    status: string,
-    error: string[],
-    success: boolean
-}
+
 
 const initialState: initalStateType = {
 
@@ -33,7 +32,7 @@ const initialState: initalStateType = {
         password: "",
         password_confirmation: "",
         username: "",
-        image: ""
+        image_url: ""
 
     },
     status: "idle",
@@ -56,6 +55,7 @@ export const signSlice = createSlice({
                 state.status = "succeeded"
                 state.user = action.payload
                 state.success = true
+                state.error = []
             })
 
             .addCase(addUser.rejected, (state, action: PayloadAction<any>) => {

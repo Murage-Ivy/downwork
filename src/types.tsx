@@ -5,5 +5,12 @@ export type FormDataType = {
     password: string,
     password_confirmation: string,
     username: string,
-    image: string
+    image_url: string
+}
+
+export type initalStateType = {
+    user: FormDataType,
+    status: string,
+    error: string[],
+    success: boolean
 }
