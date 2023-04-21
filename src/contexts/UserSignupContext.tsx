@@ -39,13 +39,17 @@ export const SignUpContextProvider = ({ children }: SignUpProviderType) => {
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = event.target
         setUser({ ...user, [name]: value })
-        fetchImage()
+        // fetchImage()
     }
 
     const handleImage = (event: React.ChangeEvent<HTMLInputElement>) => {
         if (event.target.files) {
             setImage(event.target.files[0])
         }
+        if (image) {
+            fetchImage()
+        }
+
     }
 
     const fetchImage = () => {
@@ -69,7 +73,10 @@ export const SignUpContextProvider = ({ children }: SignUpProviderType) => {
 
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault()
+        fetchImage()
         dispatch(addUser(user))
+
+
         setUser({
             email: "",
             username: "",
