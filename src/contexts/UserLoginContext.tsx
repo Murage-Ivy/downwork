@@ -1,19 +1,12 @@
-import { createContext } from "react";
-import { ProviderType } from "../types";
+import { createContext, useEffect } from "react";
+import { LogginContextType, ProviderType } from "../types";
 import { LoggedUserType } from "../types"
 import { useState } from "react"
-import { useAppDispatch } from "../Hooks/useTypeSelector"
+import { useAppDispatch, useAppSelector } from "../Hooks/useTypeSelector"
 import { loginUser } from "../reducers/LoginSlice"
+import { useNavigate } from "react-router-dom";
 
 export const loginContext = createContext<LogginContextType>({} as LogginContextType)
-
-type LogginContextType = {
-    user: LoggedUserType
-    handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void
-    handleSubmit: (event: React.FormEvent<HTMLFormElement>) => void
-
-}
-
 
 export const LoginContextProvider = ({ children }: ProviderType) => {
     const [user, setUser] = useState<LoggedUserType>({
@@ -21,8 +14,22 @@ export const LoginContextProvider = ({ children }: ProviderType) => {
         password: ""
     })
 
-
     const dispatch = useAppDispatch();
+
+    const success = useAppSelector(state => state.loggedUser.success)
+
+    const navigate = useNavigate()
+
+    useEffect(() => {
+        if (success) {
+            alert("You have successfully logged in")
+            navigate('/postpage')
+        }
+
+        return () => {
+            // cleanup
+        }
+    })
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = event.target

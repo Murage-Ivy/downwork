@@ -21,3 +21,10 @@ export type initalStateType = {
     error: string[],
     success: boolean
 }
+
+export type LogginContextType = {
+    user: LoggedUserType
+    handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void
+    handleSubmit: (event: React.FormEvent<HTMLFormElement>) => void
+
+}
