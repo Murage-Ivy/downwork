@@ -3,7 +3,7 @@ import { LogginContextType, ProviderType } from "../types";
 import { LoggedUserType } from "../types"
 import { useState } from "react"
 import { useAppDispatch, useAppSelector } from "../Hooks/useTypeSelector"
-import { loginUser } from "../reducers/LoginSlice"
+import { loginUser, reset } from "../reducers/LoginSlice"
 import { useNavigate } from "react-router-dom";
 
 export const loginContext = createContext<LogginContextType>({} as LogginContextType)
@@ -27,9 +27,10 @@ export const LoginContextProvider = ({ children }: ProviderType) => {
         }
 
         return () => {
+            dispatch(reset())
             // cleanup
         }
-    })
+    }, [dispatch, success, navigate])
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = event.target

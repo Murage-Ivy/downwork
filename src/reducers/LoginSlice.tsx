@@ -37,7 +37,9 @@ export const loginSlice = createSlice({
     name: "login",
     initialState,
     reducers: {
-
+        reset: (state) => {
+            state.success = false
+        }
     },
     extraReducers: (builder) => {
         builder
@@ -60,3 +62,4 @@ export const loginSlice = createSlice({
 })
 
 export default loginSlice.reducer
+export const { reset } = loginSlice.actions

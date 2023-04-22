@@ -3,7 +3,7 @@ import { useContext } from "react"
 import { Link } from "react-router-dom"
 import { loginContext } from "../contexts/UserLoginContext"
 function LoginForm() {
-    const { handleChange, handleSubmit, user } = useContext(loginContext)
+    const { user, handleChange, handleSubmit } = useContext(loginContext)
 
     return (
         <div id="login-form">
