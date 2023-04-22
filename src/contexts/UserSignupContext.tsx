@@ -42,6 +42,7 @@ export const SignUpContextProvider = ({ children }: ProviderType) => {
 
     useEffect(() => {
         if (success) {
+            alert("You have successfully logged in")
             navigate("/login")
         }
         return () => {

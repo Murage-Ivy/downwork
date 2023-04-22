@@ -1,32 +1,9 @@
-import { useState } from "react"
+
+import { useContext } from "react"
 import { Link } from "react-router-dom"
-import { LoggedUserType } from "../types"
-import { useAppDispatch } from "../Hooks/useTypeSelector"
-import { loginUser } from "../reducers/LoginSlice"
-
+import { loginContext } from "../contexts/UserLoginContext"
 function LoginForm() {
-
-    const [user, setUser] = useState<LoggedUserType>({
-        email: "",
-        password: ""
-    })
-
-    const dispatch = useAppDispatch();
-
-    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        const { name, value } = event.target
-        setUser({ ...user, [name]: value })
-    }
-
-    const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-        event.preventDefault()
-        dispatch(loginUser(user))
-        setUser({
-            email: "",
-            password: ""
-        })
-    }
-
+    const { handleChange, handleSubmit, user } = useContext(loginContext)
 
     return (
         <div id="login-form">
@@ -46,6 +23,7 @@ function LoginForm() {
                         type="email"
                         name="email"
                         id="email"
+                        autoComplete="email"
                         value={user.email}
                         onChange={handleChange}
                         placeholder="email" />
@@ -56,6 +34,7 @@ function LoginForm() {
                         type="password"
                         name="password"
                         id="password"
+                        autoComplete="current-password"
                         value={user.password}
                         onChange={handleChange}
                         placeholder="password" />
