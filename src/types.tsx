@@ -8,6 +8,11 @@ export type FormDataType = {
     image_url: string
 }
 
+export type LoggedUserType = {
+    email: string
+    password: string
+}
+
 export type initalStateType = {
     user: FormDataType,
     status: string,
