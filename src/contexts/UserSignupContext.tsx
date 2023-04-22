@@ -1,4 +1,4 @@
-import { createContext, useRef, useState } from "react";
+import { LegacyRef, createContext, useRef, useState } from "react";
 import SignUpPage from "../Pages/SignUpPage";
 import { useAppDispatch } from "../Hooks/useTypeSelector"
 import { addUser } from "../reducers/SignupSlice"
@@ -10,7 +10,7 @@ type SignUpProviderType = {
 
 type SignupContextType = {
     user: FormDataType
-    inputFile: HTMLInputElement,
+    inputFile: LegacyRef<HTMLInputElement>,
     handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
     handleImage: (event: React.ChangeEvent<HTMLInputElement>) => void;
     handleSubmit: (event: React.FormEvent<HTMLFormElement>) => void;
@@ -88,7 +88,7 @@ export const SignUpContextProvider = ({ children }: SignUpProviderType) => {
 
     const values: SignupContextType = {
         user,
-        inputFile:null!,
+        inputFile: null!,
         handleChange,
         handleImage,
         handleSubmit

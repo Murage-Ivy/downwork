@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 import { SignUpContext } from "../contexts/UserSignupContext"
 
 const SignUp: React.FC = () => {
-    const { user, inputFile, handleChange, handleSubmit, handleImage } = useContext(SignUpContext)
+    const { user, handleChange, handleSubmit, handleImage } = useContext(SignUpContext)
     return (
         <div id="sign-form">
             <div id="sign-form-content">
@@ -47,7 +47,6 @@ const SignUp: React.FC = () => {
                             type="file"
                             name="image"
                             id="image"
-                            ref={inputFile as HTMLInputElement}
                             onChange={handleImage} />
                     </div>
                     <div className="sign-form-group">

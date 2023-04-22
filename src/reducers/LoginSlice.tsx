@@ -11,6 +11,7 @@ type initalStateType = {
 
 }
 
+
 const initialState: initalStateType = {
     user: {
         email: "",
