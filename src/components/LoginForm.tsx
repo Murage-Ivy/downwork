@@ -1,6 +1,8 @@
 import { useState } from "react"
 import { Link } from "react-router-dom"
 import { LoggedUserType } from "../types"
+import { useAppDispatch } from "../Hooks/useTypeSelector"
+import { loginUser } from "../reducers/LoginSlice"
 
 function LoginForm() {
 
@@ -9,9 +11,20 @@ function LoginForm() {
         password: ""
     })
 
+    const dispatch = useAppDispatch();
+
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = event.target
         setUser({ ...user, [name]: value })
+    }
+
+    const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+        event.preventDefault()
+        dispatch(loginUser(user))
+        setUser({
+            email: "",
+            password: ""
+        })
     }
 
 
@@ -26,7 +39,7 @@ function LoginForm() {
                     Welcome back John Doe!
                 </p>
             </div>
-            <form id="form">
+            <form id="form" onSubmit={handleSubmit}>
                 <div className="form-group">
 
                     <input
