@@ -7,7 +7,9 @@ export type FormDataType = {
     username: string,
     image_url: string
 }
-
+export type ProviderType = {
+    children: React.ReactNode;
+}
 export type LoggedUserType = {
     email: string
     password: string

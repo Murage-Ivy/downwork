@@ -2,11 +2,9 @@ import { LegacyRef, createContext, useRef, useState } from "react";
 import SignUpPage from "../Pages/SignUpPage";
 import { useAppDispatch } from "../Hooks/useTypeSelector"
 import { addUser } from "../reducers/SignupSlice"
-import { FormDataType } from "../types"
+import { FormDataType, ProviderType } from "../types"
 
-type SignUpProviderType = {
-    children: React.ReactNode;
-}
+
 
 type SignupContextType = {
     user: FormDataType
@@ -19,7 +17,7 @@ type SignupContextType = {
 export const SignUpContext = createContext<SignupContextType>({} as SignupContextType)
 
 
-export const SignUpContextProvider = ({ children }: SignUpProviderType) => {
+export const SignUpContextProvider = ({ children }: ProviderType) => {
     const cloud_name = "dhpmstfkj"
     const upload_preset = "p9zcdovn"
     const api_key = "976857633417912"

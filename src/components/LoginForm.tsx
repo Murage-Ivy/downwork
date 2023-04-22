@@ -1,6 +1,12 @@
+import { useState } from "react"
 import { Link } from "react-router-dom"
 
 function LoginForm() {
+
+    const [user, setUser] = useState({
+        email: "",
+        password: ""
+    })
     return (
         <div id="login-form">
             <div className="form">
@@ -14,11 +20,11 @@ function LoginForm() {
             </div>
             <form id="form">
                 <div className="form-group">
-                  
+
                     <input type="email" name="email" id="email" placeholder="email" />
                 </div>
                 <div className="form-group">
-               
+
                     <input type="password" name="password" id="password" placeholder="password" />
                 </div>
                 <div className="form-group">
