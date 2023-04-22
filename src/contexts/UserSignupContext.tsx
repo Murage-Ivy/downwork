@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useRef, useState } from "react";
 import SignUpPage from "../Pages/SignUpPage";
 import { useAppDispatch } from "../Hooks/useTypeSelector"
 import { addUser } from "../reducers/SignupSlice"
@@ -10,6 +10,7 @@ type SignUpProviderType = {
 
 type SignupContextType = {
     user: FormDataType
+    inputFile: HTMLInputElement,
     handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
     handleImage: (event: React.ChangeEvent<HTMLInputElement>) => void;
     handleSubmit: (event: React.FormEvent<HTMLFormElement>) => void;
@@ -23,7 +24,7 @@ export const SignUpContextProvider = ({ children }: SignUpProviderType) => {
     const upload_preset = "p9zcdovn"
     const api_key = "976857633417912"
 
-    const [image, setImage] = useState<File | null>(null)
+    const inputRef = useRef<HTMLInputElement>(null)
 
     const dispatch = useAppDispatch()
 
@@ -39,22 +40,23 @@ export const SignUpContextProvider = ({ children }: SignUpProviderType) => {
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = event.target
         setUser({ ...user, [name]: value })
-        // fetchImage()
     }
 
+    const resetFileInput = () => {
+        if (inputRef.current) {
+            inputRef.current.value = ""
+        }
+
+    }
     const handleImage = (event: React.ChangeEvent<HTMLInputElement>) => {
         if (event.target.files) {
-            setImage(event.target.files[0])
+            fetchImage(event.target.files[0])
         }
-        if (image) {
-            fetchImage()
-        }
-
     }
 
-    const fetchImage = () => {
+    const fetchImage = async (imageFile: File) => {
         const imageFormData = new FormData()
-        imageFormData.append("file", image!)
+        imageFormData.append("file", imageFile!)
         imageFormData.append("upload_preset", upload_preset)
         imageFormData.append("cloud_name", cloud_name)
         imageFormData.append("api_key", api_key)
@@ -71,12 +73,9 @@ export const SignUpContextProvider = ({ children }: SignUpProviderType) => {
 
     }
 
-    const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault()
-        fetchImage()
         dispatch(addUser(user))
-
-
         setUser({
             email: "",
             username: "",
@@ -84,10 +83,12 @@ export const SignUpContextProvider = ({ children }: SignUpProviderType) => {
             password_confirmation: "",
             image_url: ""
         })
+        resetFileInput()
     }
 
     const values: SignupContextType = {
         user,
+        inputFile:null!,
         handleChange,
         handleImage,
         handleSubmit
