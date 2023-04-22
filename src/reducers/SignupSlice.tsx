@@ -43,7 +43,11 @@ const initialState: initalStateType = {
 export const signSlice = createSlice({
     name: 'signup',
     initialState,
-    reducers: {},
+    reducers: {
+        reset: (state) => {
+            state.success = false
+        }
+    },
     extraReducers: (builder) => {
         builder
             .addCase(addUser.pending, (state, _) => {
@@ -66,4 +70,5 @@ export const signSlice = createSlice({
 });
 
 export default signSlice.reducer;
+export const { reset } = signSlice.actions;
 

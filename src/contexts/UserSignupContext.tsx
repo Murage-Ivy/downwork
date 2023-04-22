@@ -1,8 +1,9 @@
-import { LegacyRef, createContext, useRef, useState } from "react";
+import { LegacyRef, createContext, useEffect, useRef, useState } from "react";
 import SignUpPage from "../Pages/SignUpPage";
-import { useAppDispatch } from "../Hooks/useTypeSelector"
-import { addUser } from "../reducers/SignupSlice"
+import { useAppDispatch, useAppSelector } from "../Hooks/useTypeSelector"
+import { addUser, reset } from "../reducers/SignupSlice"
 import { FormDataType, ProviderType } from "../types"
+import { useNavigate } from "react-router-dom";
 
 
 
@@ -26,6 +27,10 @@ export const SignUpContextProvider = ({ children }: ProviderType) => {
 
     const dispatch = useAppDispatch()
 
+    const success = useAppSelector(state => state.signUpUser.success)
+
+    const navigate = useNavigate()
+
     const [user, setUser] = useState<FormDataType>({
         email: "",
         username: "",
@@ -34,6 +39,17 @@ export const SignUpContextProvider = ({ children }: ProviderType) => {
         image_url: ""
 
     })
+
+    useEffect(() => {
+        if (success) {
+            navigate("/login")
+        }
+        return () => {
+            // cleanup
+            dispatch(reset())
+        }
+
+    }, [navigate, dispatch, success])
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = event.target
