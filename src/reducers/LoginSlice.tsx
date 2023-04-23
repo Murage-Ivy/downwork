@@ -9,7 +9,7 @@ type initalStateType = {
 
 }
 export const loginUser = createAsyncThunk('login/user', async (user: LoggedUserType, thunkAPI) => {
-    const response = await fetch('http://localhost:3000/login', {
+    const response = await fetch('login', {
         method: 'POST',
         headers: { 'Content-Type': 'Application/json' },
         body: JSON.stringify(user)

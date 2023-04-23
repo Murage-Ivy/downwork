@@ -2,7 +2,7 @@ import { PayloadAction, createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 import { IntialsPostType, PostTypeProps } from "../types"
 
 export const addPost = createAsyncThunk('add/post', async (post: PostTypeProps, thunkAPI) => {
-    const response = await fetch('http://localhost:3000/posts', {
+    const response = await fetch('posts', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
