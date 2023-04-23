@@ -1,7 +1,7 @@
 import { PayloadAction, createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 import { IntialsPostType, PostTypeProps } from "../types"
 
-const addPost = createAsyncThunk('add/post', async (post, thunkAPI) => {
+export const addPost = createAsyncThunk('add/post', async (post: PostTypeProps, thunkAPI) => {
     const response = await fetch('http://localhost:3000/posts', {
         method: 'POST',
         headers: {
@@ -22,13 +22,17 @@ const initialState: IntialsPostType = {
     posts: [],
     status: 'idle',
     error: [],
-    succcess: false
+    success: false
 }
 
 export const addPostSlice = createSlice({
     name: 'addPost',
     initialState,
-    reducers: {},
+    reducers: {
+        resetSuccess: (state) => {
+            state.success = false
+        }
+    },
     extraReducers: (builder) => {
         builder
             .addCase(addPost.pending, (state, _) => {
@@ -37,15 +41,17 @@ export const addPostSlice = createSlice({
             .addCase(addPost.fulfilled, (state, action: PayloadAction<PostTypeProps>) => {
                 state.status = 'success'
                 state.posts.push(action.payload)
-                state.succcess = true
+                state.success = true
                 state.error = []
             })
             .addCase(addPost.rejected, (state, action: PayloadAction<any>) => {
                 state.status = 'failed'
                 state.error = action.payload
-                state.succcess = false
+                state.success = false
             })
     }
 
 })
+
+export default addPostSlice.reducer
 

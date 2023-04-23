@@ -42,5 +42,5 @@ export type IntialsPostType = {
     posts: PostTypeProps[],
     status: string,
     error: string[],
-    succcess: boolean
+    success: boolean
 }
