@@ -28,3 +28,19 @@ export type LogginContextType = {
     handleSubmit: (event: React.FormEvent<HTMLFormElement>) => void
 
 }
+
+export type PostTypeProps = {
+    title: string,
+    description: string,
+    image_url: string,
+    category: string,
+    likes: number
+
+}
+
+export type IntialsPostType = {
+    posts: PostTypeProps[],
+    status: string,
+    error: string[],
+    succcess: boolean
+}

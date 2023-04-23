@@ -1,4 +1,5 @@
 import { PayloadAction, createAsyncThunk, createSlice } from "@reduxjs/toolkit"
+import { IntialsPostType, PostTypeProps } from "../types"
 
 const addPost = createAsyncThunk('add/post', async (post, thunkAPI) => {
     const response = await fetch('http://localhost:3000/posts', {
@@ -17,7 +18,7 @@ const addPost = createAsyncThunk('add/post', async (post, thunkAPI) => {
     }
 
 })
-const initialState = {
+const initialState: IntialsPostType = {
     posts: [],
     status: 'idle',
     error: [],
@@ -33,9 +34,9 @@ export const addPostSlice = createSlice({
             .addCase(addPost.pending, (state, _) => {
                 state.status = 'loading'
             })
-            .addCase(addPost.fulfilled, (state, action: PayloadAction) => {
+            .addCase(addPost.fulfilled, (state, action: PayloadAction<PostTypeProps>) => {
                 state.status = 'success'
-                state.posts = action.payload
+                state.posts.push(action.payload)
                 state.succcess = true
                 state.error = []
             })
