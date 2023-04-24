@@ -554,12 +554,15 @@ a {
   color: var(--secondary-color);
 }
 
-#post-card-footer-left{
+#post-card-footer-left {
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 50px;
+}
 
+.not-found {
+  border-radius: 15px;
 }
 
 /* end of post card styles */

@@ -34,7 +34,7 @@ const PostForm: React.FC<PostFormProps> = ({ handlePostForm }) => {
                 ></textarea>
                 <input type="file" onChange={handlePostImage} />
                 <select value={post.category} name="category" onChange={handlePostChange} >
-
+                    <option value="category">Categories</option>
                     <option value="vegetables">Vegetables</option>
                     <option value="fruits">Fruits</option>
                     <option value="animals">Animal</option>

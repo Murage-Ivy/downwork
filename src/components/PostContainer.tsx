@@ -24,7 +24,8 @@ const PostContainer: React.FC = () => {
                 <SearchForm />
             </div>
             <div id="post-container-body">
-                {postsList}
+
+                {postsList.length === 0 ? <img src="../assets/images/404_error.gif" alt="not found" className="not-found" /> : postsList}
             </div>
         </div>
     )
