@@ -11,15 +11,17 @@ const PostCard: React.FC<PostType> = ({ post }) => {
     return (
         <div id="post-card">
             <div id="post-card-header">
-                <p>Meta Platforms, Inc., doing business as Meta and formerly named Facebook, Inc., and TheFacebook, Inc., is an American multinational technology conglomerate based in Menlo Park, California.</p>
+                <p>{post.description}</p>
             </div>
+
             <div id="post-card-body">
-                <img src="../assets/images/farm-with-goats.jpg" alt="post" />
+                <img src={post.image_url} alt="post" />
             </div>
             <div id="post-card-footer">
                 <div id="post-card-footer-left">
                     <FontAwesomeIcon icon={faHeart} id="heart-icon" />
-                    <span id="likes"> 0 likes</span>
+                    
+                    <span id="likes">{post.likes}</span>
                 </div>
                 <div id="post-card-footer-right">
                     <span id="comments">comments</span>

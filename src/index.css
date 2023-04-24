@@ -535,8 +535,8 @@ a {
 }
 
 #post-card-body > img {
-  width: 500px;
-  height: 300px;
+  width: 50%;
+  height: 200px;
   border-radius: 5px;
 }
 
@@ -544,6 +544,7 @@ a {
   color: var(--secondary-color);
   text-align: justify;
   padding: 10px;
+  font-size: 14px;
 }
 
 #post-card-footer {
@@ -551,6 +552,14 @@ a {
   justify-content: space-between;
   padding: 10px;
   color: var(--secondary-color);
+}
+
+#post-card-footer-left{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 50px;
+
 }
 
 /* end of post card styles */
@@ -598,7 +607,6 @@ a {
   box-sizing: content-box;
   margin-bottom: 20px;
   left: 0px;
-
 }
 
 #comment-icon {

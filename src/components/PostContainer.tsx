@@ -24,7 +24,7 @@ const PostContainer: React.FC = () => {
                 <SearchForm />
             </div>
             <div id="post-container-body">
-                {/* {postsList} */}
+                {postsList}
             </div>
         </div>
     )
