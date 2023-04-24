@@ -12,7 +12,7 @@ type PostContextType = {
     handlePostImage: (event: ChangeEvent<HTMLInputElement>) => void
     handleSubmit: (event: FormEvent<HTMLFormElement>) => void
 }
-const postContext = createContext<PostContextType>({} as PostContextType)
+export const postContext = createContext<PostContextType>({} as PostContextType)
 
 export const PostContextProvider = ({ children }: ProviderType) => {
 

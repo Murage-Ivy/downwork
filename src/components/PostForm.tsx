@@ -1,15 +1,13 @@
-import { ChangeEvent, useState } from "react"
-import { PostTypeProps, ProfileCallBackType } from "../types"
-import { useAppDispatch } from "../Hooks/useTypeSelector"
-import { addPost } from "../reducers/AddPostSlice"
+import { useContext } from "react"
+import { ProfileCallBackType } from "../types"
+import { postContext } from "../contexts/PostContext"
 
 interface PostFormProps {
     handlePostForm?: ProfileCallBackType
 }
 
-
-
 const PostForm: React.FC<PostFormProps> = ({ handlePostForm }) => {
+    const { post, handlePostChange, handlePostImage, handleSubmit } = useContext(postContext)
 
     return (
         <div id="__overlay">
