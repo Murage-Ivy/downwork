@@ -19,16 +19,12 @@ export const addPost = createAsyncThunk('add/post', async (post: PostTypeProps, 
 
 })
 
-export const fetchPosts = createAsyncThunk('fetch/posts', async (thunkAPI, category) => {
-    const response = await fetch(`posts/index?categroy=${category}`)
+export const fetchPosts = createAsyncThunk('fetch/posts', async (category:String) => {
+    const response = await fetch(`posts?category=${category}`)
     const data = await response.json()
     if (response.ok) {
         return data
     }
-    // else {
-    //     return thunkAPI.rejectWithValue(data.errors)
-    // }
-
 })
 
 

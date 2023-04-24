@@ -23,6 +23,7 @@ export const PostContextProvider = ({ children }: ProviderType) => {
         likes: 0
     })
 
+    const [category, setCategory] = useState<String>("")
     const dispatch = useAppDispatch()
 
     const handlePostChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -68,12 +69,17 @@ export const PostContextProvider = ({ children }: ProviderType) => {
         })
     }
 
-
     const getCategory = (categoryName: string) => {
-        console.log(categoryName)
+        setCategory(categoryName)
     }
+
+
+
+
+
     const values: PostContextType = {
         post,
+        category,
         handlePostChange,
         handlePostImage,
         handleSubmit,

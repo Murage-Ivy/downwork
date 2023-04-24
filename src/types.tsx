@@ -46,6 +46,7 @@ export type IntialsPostType = {
 }
 export type PostContextType = {
     post: PostTypeProps
+    category: String
     handlePostChange: (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => void
     handlePostImage: (event: React.ChangeEvent<HTMLInputElement>) => void
     handleSubmit: (event: React.FormEvent<HTMLFormElement>) => void
