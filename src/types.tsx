@@ -49,4 +49,5 @@ export type PostContextType = {
     handlePostChange: (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => void
     handlePostImage: (event: React.ChangeEvent<HTMLInputElement>) => void
     handleSubmit: (event: React.FormEvent<HTMLFormElement>) => void
+    getCategory: (categoryName: string) => void
 }

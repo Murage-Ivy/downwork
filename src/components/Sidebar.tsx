@@ -1,9 +1,16 @@
 import { faSignOut } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { ReactElement } from "react"
+import { ReactElement, useContext } from "react"
 import Logo from "./Logo"
+import { postContext } from "../contexts/PostContext"
 
 function Sidebar() {
+
+  const { getCategory } = useContext(postContext)
+
+  const handleClick = (categoryName: string) => {
+    getCategory(categoryName)
+  }
   const topics: Array<{
     name: string,
     image: string
@@ -29,7 +36,7 @@ function Sidebar() {
 
   const topicsList: Array<ReactElement<HTMLDivElement>> = topics.map((topic, index) => {
     return (
-      <div className="topic" key={index}>
+      <div className="topic" key={index} onClick={() => handleClick(topic.name)}>
         <img src={topic.image} alt={topic.name} />
         <h4>{topic.name}</h4>
       </div>
@@ -43,7 +50,7 @@ function Sidebar() {
         {topicsList}
       </div>
       <div className="logout">
-        <FontAwesomeIcon icon={faSignOut}id="logout-icon" />
+        <FontAwesomeIcon icon={faSignOut} id="logout-icon" />
         <h4>Logout</h4>
       </div>
     </div>

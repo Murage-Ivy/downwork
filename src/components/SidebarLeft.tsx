@@ -2,7 +2,6 @@ import { useState } from "react"
 import { ProfileCallBackType } from "../types"
 import PostForm from "./PostForm"
 import Profile from "./Profile"
-import { PostContextProvider } from "../contexts/PostContext"
 
 const LeftSideBar: React.FC = () => {
     const [profile, setProfile] = useState<Boolean>(false)
@@ -27,7 +26,7 @@ const LeftSideBar: React.FC = () => {
                 <button id="add-post-btn" onClick={handlePostForm} >Add Post</button>
             </div>
 
-            {postForm && <PostContextProvider><PostForm handlePostForm={handlePostForm} /></PostContextProvider>}
+            {postForm && <PostForm handlePostForm={handlePostForm} />}
 
         </div>
     )

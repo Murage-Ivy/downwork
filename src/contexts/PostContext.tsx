@@ -36,7 +36,6 @@ export const PostContextProvider = ({ children }: ProviderType) => {
         }
     }
 
-
     const fetchPostImage = async (imageFile: File) => {
         const imageFormData = new FormData()
         imageFormData.append("file", imageFile!)
@@ -68,11 +67,18 @@ export const PostContextProvider = ({ children }: ProviderType) => {
             likes: 0
         })
     }
+
+
+    const getCategory = (categoryName: string) => {
+        console.log(categoryName)
+    }
     const values: PostContextType = {
         post,
         handlePostChange,
         handlePostImage,
-        handleSubmit
+        handleSubmit,
+        getCategory
+
     }
 
     return (
