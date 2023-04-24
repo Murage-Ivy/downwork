@@ -18,12 +18,28 @@ export const addPost = createAsyncThunk('add/post', async (post: PostTypeProps, 
     }
 
 })
+
+export const fetchPosts = createAsyncThunk('fetch/posts', async (thunkAPI, category) => {
+    const response = await fetch(`posts/index?categroy=${category}`)
+    const data = await response.json()
+    if (response.ok) {
+        return data
+    }
+    // else {
+    //     return thunkAPI.rejectWithValue(data.errors)
+    // }
+
+})
+
+
 const initialState: IntialsPostType = {
     posts: [],
     status: 'idle',
     error: [],
     success: false
 }
+
+
 
 export const addPostSlice = createSlice({
     name: 'addPost',
@@ -49,9 +65,22 @@ export const addPostSlice = createSlice({
                 state.error = action.payload
                 state.success = false
             })
+            .addCase(fetchPosts.pending, (state, _) => {
+                state.status = 'loading'
+            })
+            .addCase(fetchPosts.fulfilled, (state, action: PayloadAction<PostTypeProps[]>) => {
+                state.status = "success"
+                state.posts = action.payload
+            })
+            .addCase(fetchPosts.rejected, (state, _) => {
+                state.status = 'failed'
+            })
     }
 
 })
 
+
+
+export const { resetSuccess } = addPostSlice.actions
 export default addPostSlice.reducer
 

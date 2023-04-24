@@ -60,6 +60,13 @@ const PostForm: React.FC<PostFormProps> = ({ handlePostForm }) => {
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault()
         dispatch(addPost(post))
+        setPost({
+            title: '',
+            description: '',
+            image_url: '',
+            category: '',
+            likes: 0
+        })
     }
     return (
         <div id="__overlay">
@@ -86,7 +93,7 @@ const PostForm: React.FC<PostFormProps> = ({ handlePostForm }) => {
                 ></textarea>
                 <input type="file" onChange={handlePostImage} />
                 <select value={post.category} name="category" onChange={handlePostChange} >
-                    
+
                     <option value="vegetables">Vegetables</option>
                     <option value="fruits">Fruits</option>
                     <option value="animals">Animal</option>
