@@ -30,6 +30,17 @@ export type LogginContextType = {
 }
 
 export type PostTypeProps = {
+    id:number
+    title: string,
+    description: string,
+    image_url: string,
+    category: string,
+    likes: number
+
+}
+
+export type PostTypes = {
+  
     title: string,
     description: string,
     image_url: string,

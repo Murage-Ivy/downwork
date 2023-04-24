@@ -1,8 +1,13 @@
 import { faHeart } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import CommentContainer from "./CommentContainer"
+import { PostTypes } from "../types"
 
-const PostCard: React.FC = () => {
+type PostType = {
+    post: PostTypes
+}
+
+const PostCard: React.FC<PostType> = ({ post }) => {
     return (
         <div id="post-card">
             <div id="post-card-header">

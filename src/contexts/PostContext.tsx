@@ -16,6 +16,7 @@ export const PostContextProvider = ({ children }: ProviderType) => {
     const file_folder = "postimages"
 
     const [post, setPost] = useState<PostTypeProps>({
+        id: 0,
         title: '',
         description: '',
         image_url: '',
@@ -61,6 +62,7 @@ export const PostContextProvider = ({ children }: ProviderType) => {
         event.preventDefault()
         dispatch(addPost(post))
         setPost({
+            id: 0,
             title: '',
             description: '',
             image_url: '',
