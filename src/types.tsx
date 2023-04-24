@@ -44,3 +44,9 @@ export type IntialsPostType = {
     error: string[],
     success: boolean
 }
+export type PostContextType = {
+    post: PostTypeProps
+    handlePostChange: (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => void
+    handlePostImage: (event: React.ChangeEvent<HTMLInputElement>) => void
+    handleSubmit: (event: React.FormEvent<HTMLFormElement>) => void
+}

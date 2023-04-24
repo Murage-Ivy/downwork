@@ -1,17 +1,11 @@
-import { FormEvent, createContext } from "react";
-import { ProviderType } from '../types'
+import { createContext } from "react";
+import { PostContextType, ProviderType } from '../types'
 import { useState } from "react"
 import { useAppDispatch } from "../Hooks/useTypeSelector"
 import { PostTypeProps } from "../types"
-import { ChangeEvent } from "react"
 import { addPost } from "../reducers/AddPostSlice";
 
-type PostContextType = {
-    post: PostTypeProps
-    handlePostChange: (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => void
-    handlePostImage: (event: ChangeEvent<HTMLInputElement>) => void
-    handleSubmit: (event: FormEvent<HTMLFormElement>) => void
-}
+
 export const postContext = createContext<PostContextType>({} as PostContextType)
 
 export const PostContextProvider = ({ children }: ProviderType) => {
@@ -36,7 +30,7 @@ export const PostContextProvider = ({ children }: ProviderType) => {
         setPost({ ...post, [name]: value })
     }
 
-    const handlePostImage = async (event: ChangeEvent<HTMLInputElement>) => {
+    const handlePostImage = async (event: React.ChangeEvent<HTMLInputElement>) => {
         if (event.target.files) {
             await fetchPostImage(event.target.files[0])
         }
