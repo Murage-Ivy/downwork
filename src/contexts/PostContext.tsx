@@ -1,7 +1,7 @@
-import { createContext } from "react";
+import { createContext, useEffect } from "react";
 import { PostContextType, ProviderType } from '../types'
 import { useState } from "react"
-import { useAppDispatch } from "../Hooks/useTypeSelector"
+import { useAppDispatch, useAppSelector } from "../Hooks/useTypeSelector"
 import { PostTypeProps } from "../types"
 import { addPost } from "../reducers/AddPostSlice";
 
@@ -26,6 +26,7 @@ export const PostContextProvider = ({ children }: ProviderType) => {
 
     const [category, setCategory] = useState<String>("")
     const dispatch = useAppDispatch()
+    const success = useAppSelector(state => state.addPost.success)
 
     const handlePostChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
         const { name, value } = event.target
@@ -77,7 +78,13 @@ export const PostContextProvider = ({ children }: ProviderType) => {
 
 
 
+    useEffect(() => {
+        if(success) {
+            
+        }
 
+
+    })
 
     const values: PostContextType = {
         post,
