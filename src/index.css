@@ -532,6 +532,7 @@ a {
   box-sizing: content-box;
   margin-top: 20px;
   position: relative;
+  height: fit-content;
 }
 
 #post-card-body > img {
@@ -570,7 +571,7 @@ a {
 /* style of comment section */
 #comment-container {
   position: relative;
-  height: 100px;
+  height: 110px;
   border-radius: 5px;
   border: 1px solid rgb(179, 176, 176);
   box-shadow: 0 6px 10px 0 rgba(41, 41, 41, 0.14),
@@ -585,7 +586,6 @@ a {
   position: absolute;
   top: 0;
   left: 0;
-  
 }
 /* End of comment section styles */
 

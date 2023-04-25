@@ -26,7 +26,6 @@ export const PostContextProvider = ({ children }: ProviderType) => {
 
     const [category, setCategory] = useState<String>("")
     const dispatch = useAppDispatch()
-    const success = useAppSelector(state => state.addPost.success)
 
     const handlePostChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
         const { name, value } = event.target
@@ -78,13 +77,6 @@ export const PostContextProvider = ({ children }: ProviderType) => {
 
 
 
-    useEffect(() => {
-        if(success) {
-            
-        }
-
-
-    })
 
     const values: PostContextType = {
         post,
