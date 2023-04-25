@@ -10,7 +10,7 @@ const PostContainer: React.FC = () => {
     const { category } = useContext(postContext)
 
     useEffect(() => {
-        dispatch(fetchPosts(category))
+        dispatch(fetchPosts(category!))
     }, [dispatch, category])
 
 
@@ -25,7 +25,7 @@ const PostContainer: React.FC = () => {
             </div>
             <div id="post-container-body">
 
-                {postsList.length === 0 ? <img src="../assets/images/404_error.gif" alt="not found" className="not-found" /> : postsList}
+                {postsList?.length === 0 ? <img src="../assets/images/404_error.gif" alt="not found" className="not-found" /> : postsList}
             </div>
         </div>
     )

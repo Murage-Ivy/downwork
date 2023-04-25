@@ -1,7 +1,7 @@
-import { createContext, useEffect } from "react";
+import { createContext } from "react";
 import { PostContextType, ProviderType } from '../types'
 import { useState } from "react"
-import { useAppDispatch, useAppSelector } from "../Hooks/useTypeSelector"
+import { useAppDispatch } from "../Hooks/useTypeSelector"
 import { PostTypeProps } from "../types"
 import { addPost } from "../reducers/AddPostSlice";
 

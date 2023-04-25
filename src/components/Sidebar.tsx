@@ -4,6 +4,7 @@ import { ReactElement, useContext } from "react"
 import Logo from "./Logo"
 import { postContext } from "../contexts/PostContext"
 
+
 function Sidebar() {
 
   const { getCategory } = useContext(postContext)
@@ -17,7 +18,7 @@ function Sidebar() {
   }> = [
       {
         name: "Vegetables",
-        image: "../assets/images/front-view-smiley-woman-holding-box.jpg"
+        image: "../assets/images/front-view-smiley-woman-holding-box.jpg",
       },
       {
         name: "Fruits",
@@ -34,9 +35,9 @@ function Sidebar() {
       }
     ]
 
-  const topicsList: Array<ReactElement<HTMLDivElement>> = topics.map((topic, index) => {
+  const topicsList: Array<ReactElement<HTMLLinkElement>> = topics.map((topic, index) => {
     return (
-      <div className="topic" key={index} onClick={() => handleClick(topic.name)}>
+      <div className="topic" onClick={() => handleClick(topic.name)}>
         <img src={topic.image} alt={topic.name} />
         <h4>{topic.name}</h4>
       </div>
