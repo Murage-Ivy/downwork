@@ -53,7 +53,7 @@ export const addPostSlice = createSlice({
             })
             .addCase(addPost.fulfilled, (state, action: PayloadAction<PostTypeProps>) => {
                 state.status = 'success'
-                state.posts.push(action.payload)
+                state.posts.unshift(action.payload)
                 state.success = true
                 state.error = []
             })
