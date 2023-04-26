@@ -23,12 +23,11 @@ const CommentForm: React.FC<PostIdType> = ({ postId }) => {
 
     const handleSubmit = (event: React.MouseEvent<HTMLFormElement>) => {
         event.preventDefault()
-        // dispatch(addComment(comment))
-        console.log(comment)
+        dispatch(addComment(comment))
         setComment({
             id: 0,
             content: "",
-            post_id: 0
+            post_id: postId
         })
 
     }
