@@ -3,13 +3,15 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { useState } from "react"
 import { useAppDispatch } from "../Hooks/useTypeSelector"
 import { addComment } from "../reducers/CommentSlice"
-
-const CommentForm: React.FC = () => {
+type PostIdType = {
+    postId: number
+}
+const CommentForm: React.FC<PostIdType> = ({ postId }) => {
 
     const [comment, setComment] = useState({
         id: 0,
         content: "",
-        post_id: 0
+        post_id: postId
     })
 
     const dispatch = useAppDispatch()
@@ -21,13 +23,17 @@ const CommentForm: React.FC = () => {
 
     const handleSubmit = (event: React.MouseEvent<HTMLFormElement>) => {
         event.preventDefault()
-        dispatch(addComment(comment))
+        // dispatch(addComment(comment))
+        console.log(comment)
         setComment({
             id: 0,
             content: "",
             post_id: 0
         })
+
     }
+
+   
 
     return (
         <form id="comment-form" onSubmit={handleSubmit}>

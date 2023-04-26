@@ -37,7 +37,7 @@ function Sidebar() {
 
   const topicsList: Array<ReactElement<HTMLLinkElement>> = topics.map((topic, index) => {
     return (
-      <div className="topic" onClick={() => handleClick(topic.name)}>
+      <div className="topic" key ={index}onClick={() => handleClick(topic.name)}>
         <img src={topic.image} alt={topic.name} />
         <h4>{topic.name}</h4>
       </div>

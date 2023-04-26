@@ -30,7 +30,7 @@ const PostCard: React.FC<PostType> = ({ post }) => {
                         <span id="comments">comments</span>
                     </div>
                 </div>
-                <CommentContainer />
+                <CommentContainer postId={post.id} />
             </div>
         </>
     )

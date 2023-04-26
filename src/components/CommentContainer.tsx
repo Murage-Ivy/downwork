@@ -1,7 +1,12 @@
 import CommentCard from "./CommentCard"
 import CommentForm from "./CommentForm"
 
-const CommentContainer: React.FC = () => {
+type PostIdType = {
+    postId: number
+}
+
+const CommentContainer: React.FC<PostIdType> = ({ postId }) => {
+
     return (
         <div id="comment-container">
             <div id="comment-container-body">
@@ -10,7 +15,7 @@ const CommentContainer: React.FC = () => {
                 <CommentCard />
                 <CommentCard />
             </div>
-            <CommentForm />
+            <CommentForm postId={postId} />
         </div>
     )
 }
