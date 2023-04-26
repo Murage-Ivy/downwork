@@ -14,11 +14,16 @@ const CommentForm: React.FC = () => {
         const { name, value } = event.target
         setComment({ ...comment, [name]: value })
     }
+
+    const handleSubmit = (event: React.MouseEvent<HTMLFormElement>) => {
+        event.preventDefault()
+        console.log(comment)
+    }
     return (
-        <div id="comment-form">
+        <form id="comment-form" onSubmit={handleSubmit}>
             <input type="text" placeholder="add comment ..." onChange={handleChange} />
             <FontAwesomeIcon icon={faPaperPlane} id="comment-icon" />
-        </div>
+        </form>
     )
 }
 export default CommentForm
