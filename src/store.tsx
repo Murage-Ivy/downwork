@@ -2,6 +2,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import signUpReducer from './reducers/SignupSlice'
 import logginReducer from './reducers/LoginSlice'
 import addPostReducer from './reducers/AddPostSlice'
+import addCommentReducer from './reducers/CommentSlice'
 
 
 export const store = configureStore({
@@ -9,7 +10,8 @@ export const store = configureStore({
         // Add your reducers here
         signUpUser: signUpReducer,
         loggedUser: logginReducer,
-        addPost: addPostReducer
+        addPost: addPostReducer,
+        addComment: addCommentReducer
 
     },
 });

@@ -616,10 +616,11 @@ a {
 #comment-icon {
   color: var(--tertiary-color);
   position: absolute;
-  top: 5.5em;
+  top: 6.2em;
   right: 30px;
   cursor: pointer;
   z-index: 1000;
+  border: none;
 }
 /* end comment form styles */
 
