@@ -21,7 +21,9 @@ export const PostContextProvider = ({ children }: ProviderType) => {
         description: '',
         image_url: '',
         category: '',
-        likes: 0
+        likes: 0,
+        comments: []
+
     })
 
     const [category, setCategory] = useState<String>("")
@@ -67,7 +69,8 @@ export const PostContextProvider = ({ children }: ProviderType) => {
             description: '',
             image_url: '',
             category: '',
-            likes: 0
+            likes: 0,
+            comments:[]
         })
     }
 

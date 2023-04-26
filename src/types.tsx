@@ -35,8 +35,8 @@ export type PostTypeProps = {
     description: string,
     image_url: string,
     category: string,
-    likes: number
-
+    likes: number,
+    comments:String[]
 }
 
 export type PostTypes = {
@@ -45,7 +45,9 @@ export type PostTypes = {
     description: string,
     image_url: string,
     category: string,
-    likes: number
+    likes: number,
+    comments:String[]
+  
 
 }
 
