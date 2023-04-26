@@ -2,9 +2,12 @@ import { PayloadAction, createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 
 type CommentPropsType = {
     id: number,
-    content: String,
+    content: string,
     post_id: number
 }
+
+
+
 
 export const addComment = createAsyncThunk('add/comment', async (comment: CommentPropsType, thunkAPI) => {
     const response = await fetch(`comments`, {
@@ -25,12 +28,16 @@ export const addComment = createAsyncThunk('add/comment', async (comment: Commen
 })
 
 type CommentInitailTypeState = {
-    comments: CommentPropsType[],
+    comment: CommentPropsType,
     errors: string[],
     status: string
 }
 const initialState: CommentInitailTypeState = {
-    comments: [],
+    comment: {
+        id: 0,
+        content: "",
+        post_id: 0
+    },
     errors: [],
     status: "idle",
 
@@ -50,7 +57,7 @@ export const commentSlice = createSlice({
 
             .addCase(addComment.fulfilled, (state, action: PayloadAction<CommentPropsType>) => {
                 state.status = "success"
-                state.comments.unshift(action.payload)
+                state.comment = (action.payload)
             })
             .addCase(addComment.rejected, (state, action: PayloadAction<any>) => {
                 state.status = "failed"

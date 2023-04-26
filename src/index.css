@@ -625,6 +625,10 @@ a {
 /* end comment form styles */
 
 /* style of comment card */
+
+#comment-card{
+  height: fit-content;
+}
 #comment-card-content {
   color: var(--secondary-color);
   font-size: 12px;

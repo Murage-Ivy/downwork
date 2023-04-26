@@ -1,3 +1,4 @@
+import { useAppSelector } from "../Hooks/useTypeSelector"
 import { CommentType } from "../types"
 import CommentCard from "./CommentCard"
 import CommentForm from "./CommentForm"
@@ -12,11 +13,17 @@ type PostCommentsType = {
 const CommentContainer: React.FC<PostCommentsType> = ({ postId, postComments }) => {
     console.log(postComments)
 
+    const comment = useAppSelector(state => state.addComment.comment)
+
+    if (comment.post_id === postId) {
+        postComments = [...postComments, comment]
+
+    }
     const commentLists = postComments?.map(comment => <CommentCard key={comment.id} comment={comment} />)
     return (
         <div id="comment-container">
             <div id="comment-container-body">
-             {commentLists}
+                {commentLists}
             </div>
             <CommentForm postId={postId} />
         </div>
