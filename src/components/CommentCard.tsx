@@ -1,12 +1,15 @@
 import { faEdit, faTrash } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { CommentType } from "../types"
 
-const CommentCard: React.FC = () => {
+type CommentPropType = {
+    comment: CommentType
+}
+const CommentCard: React.FC<CommentPropType> = ({ comment }) => {
     return (
         <div id="comment-card">
             <div id="comment-card-content">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Laborum magnam consequatur quis excepturi neque tenetur, alias sint animi!
+                <p>{comment.content}
                 </p>
             </div>
             <div id="comment-card-icons">

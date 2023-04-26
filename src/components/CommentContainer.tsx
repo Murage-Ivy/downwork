@@ -1,23 +1,22 @@
+import { CommentType } from "../types"
 import CommentCard from "./CommentCard"
 import CommentForm from "./CommentForm"
 
 
+
 type PostCommentsType = {
     postId: number
-    postComments: String[]
+    postComments: CommentType[]
 }
 
 const CommentContainer: React.FC<PostCommentsType> = ({ postId, postComments }) => {
-console.log(postComments)
+    console.log(postComments)
 
-const commentLists = 
+    const commentLists = postComments?.map(comment => <CommentCard key={comment.id} comment={comment} />)
     return (
         <div id="comment-container">
             <div id="comment-container-body">
-                <CommentCard />
-                <CommentCard />
-                <CommentCard />
-                <CommentCard />
+             {commentLists}
             </div>
             <CommentForm postId={postId} />
         </div>

@@ -36,7 +36,7 @@ export type PostTypeProps = {
     image_url: string,
     category: string,
     likes: number,
-    comments:String[]
+    comments:CommentType[]
 }
 
 export type PostTypes = {
@@ -46,9 +46,15 @@ export type PostTypes = {
     image_url: string,
     category: string,
     likes: number,
-    comments:String[]
+    comments:CommentType[]
   
 
+}
+
+export type CommentType = {
+    id: number
+    content: string
+    post_id: number 
 }
 
 export type IntialsPostType = {
