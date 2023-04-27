@@ -48,7 +48,9 @@ const initialState: CommentInitailTypeState = {
 export const commentSlice = createSlice({
     name: 'comment',
     initialState,
-    reducers: {},
+    reducers: {
+        
+    },
     extraReducers: builder => {
         builder
             .addCase(addComment.pending, (state, _) => {

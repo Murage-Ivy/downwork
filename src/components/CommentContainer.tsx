@@ -16,9 +16,10 @@ const CommentContainer: React.FC<PostCommentsType> = ({ postId, postComments }) 
     const comment = useAppSelector(state => state.addComment.comment)
 
     if (comment.post_id === postId) {
-        postComments = [...postComments, comment]
-
+        postComments = [comment,...postComments, ]
     }
+
+
     const commentLists = postComments?.map(comment => <CommentCard key={comment.id} comment={comment} />)
     return (
         <div id="comment-container">

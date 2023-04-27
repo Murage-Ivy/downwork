@@ -3,9 +3,16 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { ReactElement, useContext } from "react"
 import Logo from "./Logo"
 import { postContext } from "../contexts/PostContext"
+import { useNavigate } from "react-router-dom"
 
 
 function Sidebar() {
+
+  type LogoutType = {
+    logout: () => void
+  }
+
+  const navigate = useNavigate()
 
   const { getCategory } = useContext(postContext)
 
@@ -35,9 +42,21 @@ function Sidebar() {
       }
     ]
 
+  const logout = () => {
+    fetch('logout', {
+      method: 'DELETE'
+
+    }).then(r => {
+      if (r.ok) {
+        navigate('/')
+      }
+    }
+    )
+
+  }
   const topicsList: Array<ReactElement<HTMLLinkElement>> = topics.map((topic, index) => {
     return (
-      <div className="topic" key ={index}onClick={() => handleClick(topic.name)}>
+      <div className="topic" key={index} onClick={() => handleClick(topic.name)}>
         <img src={topic.image} alt={topic.name} />
         <h4>{topic.name}</h4>
       </div>
@@ -50,7 +69,7 @@ function Sidebar() {
       <div id="sidebar-content">
         {topicsList}
       </div>
-      <div className="logout">
+      <div className="logout" onClick={logout}>
         <FontAwesomeIcon icon={faSignOut} id="logout-icon" />
         <h4>Logout</h4>
       </div>
