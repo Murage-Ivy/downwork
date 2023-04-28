@@ -1,9 +1,9 @@
-import { useAppSelector } from "../Hooks/useTypeSelector"
+import {useState } from "react"
+import { useAppDispatch, useAppSelector } from "../Hooks/useTypeSelector"
+import { deleteComment } from "../reducers/CommentSlice"
 import { CommentType } from "../types"
 import CommentCard from "./CommentCard"
 import CommentForm from "./CommentForm"
-
-
 
 type PostCommentsType = {
     postId: number
@@ -11,22 +11,36 @@ type PostCommentsType = {
 }
 
 const CommentContainer: React.FC<PostCommentsType> = ({ postId, postComments }) => {
-    console.log(postComments)
 
-    const comment = useAppSelector(state => state.addComment.comment)
+    const [comments, setComments] = useState(postComments)
 
-    if (comment.post_id === postId) {
-        postComments = [comment,...postComments, ]
+    const dispatch = useAppDispatch()
+    const fetchedComment = useAppSelector(state => state.addComment.comment)
+
+    const getCommentId = (commentId: number, post_id: number) => {
+        handleDeleteComment(postId, commentId, post_id)
+    }
+    const handleAddComments = () => {
+        if (fetchedComment.post_id === postId) {
+            setComments([fetchedComment, ...comments])
+        }
     }
 
+    const handleDeleteComment = (postId: number, commentId: number, post_id: number) => {
+        dispatch(deleteComment(commentId))
+        console.log(commentId)
+        if (postId === post_id) {
+            setComments(prevComments => prevComments.filter(comment => comment.id !== commentId))
+        }
+    }
 
-    const commentLists = postComments?.map(comment => <CommentCard key={comment.id} comment={comment} />)
+    const commentLists = comments?.map(comment => <CommentCard key={comment.id} comment={comment} getCommentId={getCommentId} />)
     return (
         <div id="comment-container">
             <div id="comment-container-body">
                 {commentLists}
             </div>
-            <CommentForm postId={postId} />
+            <CommentForm postId={postId} handleAddComments={handleAddComments} />
         </div>
     )
 }

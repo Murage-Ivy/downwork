@@ -8,10 +8,6 @@ import { useNavigate } from "react-router-dom"
 
 function Sidebar() {
 
-  type LogoutType = {
-    logout: () => void
-  }
-
   const navigate = useNavigate()
 
   const { getCategory } = useContext(postContext)

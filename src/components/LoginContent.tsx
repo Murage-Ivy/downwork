@@ -5,7 +5,7 @@ import Logo from './Logo'
 function LoginContent() {
     const stars = [1, 2, 3, 4, 5].map((star) => {
         return (
-            <FontAwesomeIcon icon={faStar} className="rated-login" />
+            <FontAwesomeIcon icon={faStar} key={star} className="rated-login" />
         )
     })
     return (

@@ -26,12 +26,22 @@ export const PostContextProvider = ({ children }: ProviderType) => {
 
     })
 
+
+
     const [category, setCategory] = useState<String>("")
+    const [search, setSearch] = useState('')
     const dispatch = useAppDispatch()
 
     const handlePostChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
         const { name, value } = event.target
         setPost({ ...post, [name]: value })
+    }
+
+
+    const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
+        const { value } = event.target
+        setSearch(value)
+
     }
 
     const handlePostImage = async (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -70,7 +80,7 @@ export const PostContextProvider = ({ children }: ProviderType) => {
             image_url: '',
             category: '',
             likes: 0,
-            comments:[]
+            comments: []
         })
     }
 
@@ -87,7 +97,9 @@ export const PostContextProvider = ({ children }: ProviderType) => {
         handlePostChange,
         handlePostImage,
         handleSubmit,
-        getCategory
+        getCategory,
+        search,
+        handleSearch
 
     }
 

@@ -8,16 +8,19 @@ import { postContext } from "../contexts/PostContext"
 const PostContainer: React.FC = () => {
     const dispatch = useAppDispatch()
     const { category } = useContext(postContext)
-
+    const { search } = useContext(postContext)
     useEffect(() => {
         dispatch(fetchPosts(category!))
     }, [dispatch, category])
 
 
     const posts = useAppSelector(state => state.addPost.posts)
-    console.log(posts)
 
-    const postsList = posts?.map(post => <PostCard key={post.id} post={post} />)
+    const newPosts = posts.filter(post => post.description.toLocaleLowerCase().includes(search.toLocaleLowerCase()))
+
+    const postsList = newPosts?.map(post => <PostCard key={post.id} post={post} />)
+
+
     return (
         <div id="post-container">
             <div id="post-container-header">

@@ -3,9 +3,15 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { CommentType } from "../types"
 
 type CommentPropType = {
-    comment: CommentType
+    comment: CommentType,
+    getCommentId: (commentId: number, post_id: number) => void
+
 }
-const CommentCard: React.FC<CommentPropType> = ({ comment }) => {
+
+
+const CommentCard: React.FC<CommentPropType> = ({ comment, getCommentId }) => {
+
+
     return (
         <div id="comment-card">
             <div id="comment-card-content">
@@ -14,7 +20,7 @@ const CommentCard: React.FC<CommentPropType> = ({ comment }) => {
             </div>
             <div id="comment-card-icons">
                 <FontAwesomeIcon icon={faEdit} />
-                <FontAwesomeIcon icon={faTrash} />
+                <FontAwesomeIcon icon={faTrash} onClick={() => getCommentId(comment.id, comment.post_id)} />
             </div>
         </div>
     )

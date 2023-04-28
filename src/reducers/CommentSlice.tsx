@@ -27,6 +27,12 @@ export const addComment = createAsyncThunk('add/comment', async (comment: Commen
 
 })
 
+export const deleteComment = createAsyncThunk('delete/comment', async (commentId:number) => {
+    fetch(`comments/${commentId}`, {
+        method: 'DELETE'
+    })
+})
+
 type CommentInitailTypeState = {
     comment: CommentPropsType,
     errors: string[],
@@ -49,7 +55,7 @@ export const commentSlice = createSlice({
     name: 'comment',
     initialState,
     reducers: {
-        
+
     },
     extraReducers: builder => {
         builder
@@ -65,6 +71,19 @@ export const commentSlice = createSlice({
                 state.status = "failed"
                 state.errors = action.payload
             })
+            .addCase(deleteComment.pending, (state, _) => {
+                state.status = "loading"
+            }
+            )
+            .addCase(deleteComment.fulfilled, (state, _) => {
+                state.status = "success"
+            }
+            )
+            .addCase(deleteComment.rejected, (state, action: PayloadAction<any>) => {
+                state.status = "failed"
+                state.errors = action.payload
+            }
+            )
     }
 
 })

@@ -36,7 +36,7 @@ export type PostTypeProps = {
     image_url: string,
     category: string,
     likes: number,
-    comments:CommentType[]
+    comments: CommentType[]
 }
 
 export type PostTypes = {
@@ -46,15 +46,15 @@ export type PostTypes = {
     image_url: string,
     category: string,
     likes: number,
-    comments:CommentType[]
-  
+    comments: CommentType[]
+
 
 }
 
 export type CommentType = {
     id: number
     content: string
-    post_id: number 
+    post_id: number
 }
 
 export type IntialsPostType = {
@@ -66,6 +66,8 @@ export type IntialsPostType = {
 export type PostContextType = {
     post: PostTypeProps
     category: String
+    search: string
+    handleSearch: (event: React.ChangeEvent<HTMLInputElement>) => void
     handlePostChange: (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => void
     handlePostImage: (event: React.ChangeEvent<HTMLInputElement>) => void
     handleSubmit: (event: React.FormEvent<HTMLFormElement>) => void
