@@ -4,12 +4,11 @@ import { CommentType } from "../types"
 
 type CommentPropType = {
     comment: CommentType,
-    getCommentId: (commentId: number, post_id: number) => void
 
 }
 
 
-const CommentCard: React.FC<CommentPropType> = ({ comment, getCommentId }) => {
+const CommentCard: React.FC<CommentPropType> = ({ comment }) => {
 
 
     return (
@@ -20,7 +19,7 @@ const CommentCard: React.FC<CommentPropType> = ({ comment, getCommentId }) => {
             </div>
             <div id="comment-card-icons">
                 <FontAwesomeIcon icon={faEdit} />
-                <FontAwesomeIcon icon={faTrash} onClick={() => getCommentId(comment.id, comment.post_id)} />
+                <FontAwesomeIcon icon={faTrash} />
             </div>
         </div>
     )

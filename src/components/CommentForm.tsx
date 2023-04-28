@@ -5,9 +5,9 @@ import { useAppDispatch} from "../Hooks/useTypeSelector"
 import { addComment } from "../reducers/CommentSlice"
 type PostIdType = {
     postId: number
-    handleAddComments: () => void
+
 }
-const CommentForm: React.FC<PostIdType> = ({ postId, handleAddComments }) => {
+const CommentForm: React.FC<PostIdType> = ({ postId }) => {
 
     const [comment, setComment] = useState({
         id: 0,
@@ -25,7 +25,6 @@ const CommentForm: React.FC<PostIdType> = ({ postId, handleAddComments }) => {
     const handleSubmit = (event: React.MouseEvent<HTMLFormElement>) => {
         event.preventDefault()
         dispatch(addComment(comment))
-        handleAddComments()
         setComment({
             id: 0,
             content: "",

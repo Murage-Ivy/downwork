@@ -14,8 +14,9 @@ type CommentPropsType = {
 }
 
 
-export const fetchComments = createAsyncThunk('fetch/Comments', async (thunkAPI) => {
-    const response = await fetch('comments')
+export const fetchComments = createAsyncThunk('fetch/Comments', async (_,thunkAPI) => {
+    const response = await fetch(`comments`, {
+    })
     const data = await response.json()
     if (response.ok) {
         return data
@@ -40,9 +41,10 @@ export const addComment = createAsyncThunk('add/comment', async (comment: Commen
 })
 
 export const deleteComment = createAsyncThunk('delete/comment', async (commentId: number) => {
-    fetch(`comments/${commentId}`, {
+   await fetch(`comments/${commentId}`, {
         method: 'DELETE'
     })
+    return commentId
 })
 
 type CommentInitailTypeState = {
@@ -92,8 +94,10 @@ export const commentSlice = createSlice({
                 state.status = "loading"
             }
             )
-            .addCase(deleteComment.fulfilled, (state, _) => {
+            .addCase(deleteComment.fulfilled, (state, action) => {
                 state.status = "success"
+                state.comments = state.comments.filter(comment => comment.id !== action.payload)
+
             }
             )
             .addCase(deleteComment.rejected, (state, action: PayloadAction<any>) => {

@@ -1,5 +1,6 @@
+import { useEffect } from "react"
 import { useAppDispatch, useAppSelector } from "../Hooks/useTypeSelector"
-import { deleteComment } from "../reducers/CommentSlice"
+import { deleteComment, fetchComments } from "../reducers/CommentSlice"
 import { CommentType } from "../types"
 import CommentCard from "./CommentCard"
 import CommentForm from "./CommentForm"
@@ -16,31 +17,26 @@ const CommentContainer: React.FC<PostCommentsType> = ({ postId }) => {
     const getCommentId = (commentId: number, post_id: number) => {
         handleDeleteComment(postId, commentId, post_id)
     }
-    const handleAddComments = () => {
-        console.log(fetchedComment, postId)
-        if (fetchedComment.post_id > 0 && fetchedComment.post_id === postId) {
-            return setComments([fetchedComment, ...comments])
-        }
-
-        console.log('this are the comments,', comments)
+    useEffect(() => {
+        dispatch(fetchComments())
     }
+        , [dispatch])
 
     const handleDeleteComment = (postId: number, commentId: number, post_id: number) => {
         dispatch(deleteComment(commentId))
         console.log(commentId)
-        if (postId === post_id) {
-            setComments(prevComments => prevComments.filter(comment => comment.id !== commentId))
-        }
     }
+    const commentPosts = comments.filter(comment => comment.post_id === postId)
 
-    const commentLists = comments?.map(comment => <CommentCard key={comment.id} comment={comment} getCommentId={getCommentId} />)
+
+    const commentLists = commentPosts?.map(comment => <CommentCard key={comment.id} comment={comment} />)
 
     return (
         <div id="comment-container">
             <div id="comment-container-body">
                 {commentLists}
             </div>
-            <CommentForm postId={postId} handleAddComments={handleAddComments} />
+            <CommentForm postId={postId} />
         </div>
     )
 }
