@@ -73,3 +73,7 @@ export type PostContextType = {
     handleSubmit: (event: React.FormEvent<HTMLFormElement>) => void
     getCategory: (categoryName: string) => void
 }
+
+export type PostIdType = {
+    postId: number
+}

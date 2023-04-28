@@ -2,7 +2,7 @@ import { faHeart } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import CommentContainer from "./CommentContainer"
 import { PostTypeProps } from "../types"
-import { useState } from "react"
+import { CommentProvider } from "../contexts/CommentContext"
 
 type PostType = {
     post: PostTypeProps
@@ -30,7 +30,10 @@ const PostCard: React.FC<PostType> = ({ post }) => {
                         <span id="comments">comments</span>
                     </div>
                 </div>
-                <CommentContainer postId={post.id}  />
+                <CommentProvider>
+                    <CommentContainer postId={post.id} />
+                </CommentProvider>
+
             </div>
         </>
     )

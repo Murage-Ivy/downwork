@@ -1,38 +1,12 @@
 import { faPaperPlane } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { useState } from "react"
-import { useAppDispatch} from "../Hooks/useTypeSelector"
-import { addComment } from "../reducers/CommentSlice"
-type PostIdType = {
-    postId: number
+import { PostIdType } from "../types"
+import { useContext } from "react"
+import { CommentContext } from "../contexts/CommentContext"
 
-}
+
 const CommentForm: React.FC<PostIdType> = ({ postId }) => {
-
-    const [comment, setComment] = useState({
-        id: 0,
-        content: "",
-        post_id: postId
-    })
-
-    const dispatch = useAppDispatch()
-
-    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        const { name, value } = event.target
-        setComment({ ...comment, [name]: value })
-    }
-
-    const handleSubmit = (event: React.MouseEvent<HTMLFormElement>) => {
-        event.preventDefault()
-        dispatch(addComment(comment))
-        setComment({
-            id: 0,
-            content: "",
-            post_id: postId
-        })
-    }
-
-
+    const { comment, handleChange, handleSubmit } = useContext(CommentContext)
 
     return (
         <form id="comment-form" onSubmit={handleSubmit}>
@@ -40,7 +14,7 @@ const CommentForm: React.FC<PostIdType> = ({ postId }) => {
                 name="content"
                 placeholder="add comment ..."
                 value={comment.content}
-                onChange={handleChange} />
+                onChange={(event) => handleChange(event, postId)} />
             <button id="comment-icon" ><FontAwesomeIcon icon={faPaperPlane} /></button>
         </form>
     )
