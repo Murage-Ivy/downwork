@@ -9,6 +9,11 @@ import { LoginContextProvider } from "./contexts/UserLoginContext";
 
 
 const App: React.FC = () => {
+
+  const getUser = () => {
+    fetch('auto_login')
+      .then(res => res.json())
+  }
   return (
     <div className="App">
       <Routes>
