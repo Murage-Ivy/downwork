@@ -1,13 +1,38 @@
-import {  useEffect, useState } from "react"
+import { useEffect, useState } from "react"
 import { ProfileCallBackType, UserType } from "../types"
 import PostForm from "./PostForm"
 import Profile from "./Profile"
 import { useAppSelector } from "../Hooks/useTypeSelector"
 
-type user = {
-    user: UserType
-}
-const LeftSideBar: React.FC<user> = ({ user }) => {
+
+const LeftSideBar: React.FC = () => {
+
+    const [user, setUser] = useState<UserType>({
+        id: 0,
+        username: "",
+        email: "",
+        image_url: "",
+    })
+
+
+    const getUser = async () => {
+        const response = await fetch('auto_login')
+        const data = await response.json()
+        if (response.ok) {
+            setUser(data)
+        }
+        else {
+            console.log(data.error)
+        }
+    }
+
+
+
+    useEffect(() => {
+        getUser()
+    }, [])
+
+
     console.log(user)
     const [profile, setProfile] = useState<Boolean>(false)
     const [postForm, setPostForm] = useState<Boolean>(false)

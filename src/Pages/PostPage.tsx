@@ -2,13 +2,10 @@ import PostContainer from "../components/PostContainer"
 import Sidebar from "../components/Sidebar"
 import LeftSideBar from "../components/SidebarLeft"
 import { PostContextProvider } from "../contexts/PostContext"
-import { UserType } from "../types"
 
 
-type user = {
-    user: UserType
-}
-const PostPage: React.FC<user> = ({user}) => {
+
+const PostPage: React.FC = () => {
 
 
     return (
@@ -16,7 +13,7 @@ const PostPage: React.FC<user> = ({user}) => {
             <PostContextProvider>
                 <Sidebar />
                 <PostContainer />
-                <LeftSideBar user={user} />
+                <LeftSideBar  />
             </PostContextProvider>
 
 

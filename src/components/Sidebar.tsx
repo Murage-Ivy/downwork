@@ -44,7 +44,7 @@ function Sidebar() {
 
     }).then(r => {
       if (r.ok) {
-        navigate('/')
+        navigate('/login')
       }
     }
     )
