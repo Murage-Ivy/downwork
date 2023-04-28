@@ -77,3 +77,10 @@ export type PostContextType = {
 export type PostIdType = {
     postId: number
 }
+
+export type UserType = {
+    id: number,
+    username: string,
+    email: string,
+    image_url: string
+  }

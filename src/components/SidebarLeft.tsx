@@ -1,10 +1,14 @@
-import { useEffect, useState } from "react"
-import { ProfileCallBackType } from "../types"
+import {  useEffect, useState } from "react"
+import { ProfileCallBackType, UserType } from "../types"
 import PostForm from "./PostForm"
 import Profile from "./Profile"
 import { useAppSelector } from "../Hooks/useTypeSelector"
 
-const LeftSideBar: React.FC = () => {
+type user = {
+    user: UserType
+}
+const LeftSideBar: React.FC<user> = ({ user }) => {
+    console.log(user)
     const [profile, setProfile] = useState<Boolean>(false)
     const [postForm, setPostForm] = useState<Boolean>(false)
     const success = useAppSelector(state => state.addPost.success)
@@ -18,7 +22,6 @@ const LeftSideBar: React.FC = () => {
 
     }
 
-
     useEffect(() => {
         if (success) {
             setPostForm(false)
@@ -31,10 +34,10 @@ const LeftSideBar: React.FC = () => {
 
         <div id="left-sidebar">
             <div id="left-sidebar-header" onClick={handleProfile}>
-                <img src="../assets/images/user.png" alt="profile" />
+                <img src={user.image_url} alt="profile" />
             </div>
 
-            {profile && <Profile handleProfile={handleProfile} />}
+            {profile && <Profile handleProfile={handleProfile} user={user} />}
 
             <div id="left-sidebar-body">
                 <button id="add-post-btn" onClick={handlePostForm} >Add Post</button>

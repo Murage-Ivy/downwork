@@ -16,7 +16,7 @@ const PostContainer: React.FC = () => {
 
     const posts = useAppSelector(state => state.addPost.posts)
 
-    const newPosts = posts.filter(post => post.description.toLocaleLowerCase().includes(search.toLocaleLowerCase()))
+    const newPosts = posts?.filter(post => post.description.toLocaleLowerCase().includes(search.toLocaleLowerCase()))
 
     const postsList = newPosts?.map(post => <PostCard key={post.id} post={post} />)
 
