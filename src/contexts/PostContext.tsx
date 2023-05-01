@@ -3,7 +3,7 @@ import { PostContextType, ProviderType } from '../types'
 import { useState } from "react"
 import { useAppDispatch } from "../Hooks/useTypeSelector"
 import { PostTypeProps } from "../types"
-import { addPost } from "../reducers/AddPostSlice";
+import { addPost, deletePosts } from "../reducers/AddPostSlice";
 
 
 export const postContext = createContext<PostContextType>({} as PostContextType)
@@ -84,11 +84,12 @@ export const PostContextProvider = ({ children }: ProviderType) => {
         })
     }
 
-    const handeDelete = (postId:number) => {
-
+    const handleDelete = (postId: number) => {
+        // dispatch(deletePosts(postId))
+        dispatch(deletePosts(postId))
     }
 
-    
+
     const getCategory = (categoryName: string) => {
         setCategory(categoryName)
     }
@@ -104,7 +105,9 @@ export const PostContextProvider = ({ children }: ProviderType) => {
         handleSubmit,
         getCategory,
         search,
-        handleSearch
+        handleSearch,
+        handleDelete
+
 
     }
 
