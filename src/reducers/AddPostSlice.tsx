@@ -20,6 +20,15 @@ export const addPost = createAsyncThunk('add/post', async (post: PostTypeProps, 
 })
 
 
+export const deletePosts = createAsyncThunk('delete/posts', async (postId: number) => {
+    const response = await fetch('posts', {
+        method: 'DELETE'
+    })
+    if (response.ok) {
+        return postId
+    }
+})
+
 export const fetchPosts = createAsyncThunk('fetch/posts', async (category: String) => {
     const response = await fetch(`posts?category=${category.toLowerCase()}`)
     const data = await response.json()
@@ -72,6 +81,19 @@ export const addPostSlice = createSlice({
             .addCase(fetchPosts.rejected, (state, _) => {
                 state.status = 'failed'
             })
+            .addCase(deletePosts.pending, (state, _) => {
+                state.status = 'loading'
+            }
+            )
+            .addCase(deletePosts.fulfilled, (state, action) => {
+                state.status = 'success'
+                state.posts = state.posts.filter(post => post.id !== action.payload)
+            }
+            )
+            .addCase(deletePosts.rejected, (state, _) => {
+                state.status = 'failed'
+            }
+            )
     }
 
 })

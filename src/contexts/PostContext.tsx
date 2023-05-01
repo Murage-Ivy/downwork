@@ -84,6 +84,10 @@ export const PostContextProvider = ({ children }: ProviderType) => {
         })
     }
 
+    const handeDelete = (postId:number) => {
+
+    }
+
     
     const getCategory = (categoryName: string) => {
         setCategory(categoryName)
