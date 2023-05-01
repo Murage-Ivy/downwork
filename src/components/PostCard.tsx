@@ -23,7 +23,7 @@ const PostCard: React.FC<PostType> = ({ post }) => {
             <div id="post-card">
                 <div className="fa-options" onClick={handleVisibility}>
                     <h2>...</h2>
-                    {visible ? <Option /> : null}
+                    {visible ? <Option postId={post.id} /> : null}
                 </div>
            
 

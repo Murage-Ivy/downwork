@@ -84,8 +84,7 @@ export const PostContextProvider = ({ children }: ProviderType) => {
         })
     }
 
-    const handleDelete = (postId: number) => {
-        // dispatch(deletePosts(postId))
+    const handleDelete = (event: React.MouseEvent<HTMLDivElement>, postId: number) => {
         dispatch(deletePosts(postId))
     }
 

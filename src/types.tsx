@@ -72,7 +72,7 @@ export type PostContextType = {
     handlePostImage: (event: React.ChangeEvent<HTMLInputElement>) => void
     handleSubmit: (event: React.FormEvent<HTMLFormElement>) => void
     getCategory: (categoryName: string) => void
-    handleDelete: (postId: number) => void
+    handleDelete: (event: React.MouseEvent<HTMLDivElement>, postId: number) => void
 }
 
 export type PostIdType = {
