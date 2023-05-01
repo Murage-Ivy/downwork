@@ -21,7 +21,7 @@ export const addPost = createAsyncThunk('add/post', async (post: PostTypeProps, 
 
 
 export const deletePosts = createAsyncThunk('delete/posts', async (postId: number) => {
-    const response = await fetch('posts', {
+    const response = await fetch(`posts/${postId}`, {
         method: 'DELETE'
     })
     if (response.ok) {
