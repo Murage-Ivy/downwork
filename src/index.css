@@ -626,7 +626,7 @@ a {
 
 /* style of comment card */
 
-#comment-card{
+#comment-card {
   height: fit-content;
 }
 #comment-card-content {
@@ -817,3 +817,36 @@ a {
 }
 
 /* end of post form styles */
+
+.fa-options {
+  font-size: 12px;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 10px;
+  right: 0;
+  z-index: 1000;
+}
+
+.fa-options > h2 {
+  color: var(--secondary-color);
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  transform: rotate(90deg);
+}
+
+.option {
+  background-color: #f5f5f5;
+  width: fit-content;
+  padding: 5px;
+  border-radius: 5px;
+  position: relative;
+  top: 10px;
+  right: 10px;
+}

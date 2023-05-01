@@ -3,16 +3,30 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import CommentContainer from "./CommentContainer"
 import { PostTypeProps } from "../types"
 import { CommentProvider } from "../contexts/CommentContext"
+import { useState } from "react"
+import Option from "./Option"
 
 type PostType = {
     post: PostTypeProps
 }
 
+
 const PostCard: React.FC<PostType> = ({ post }) => {
+    const [visible, setVisible] = useState(false)
+
+    const handleVisibility = () => {
+        setVisible(!visible)
+    }
     return (
         <>
 
             <div id="post-card">
+                <div className="fa-options" onClick={handleVisibility}>
+                    <h2>...</h2>
+                    {visible ? <Option /> : null}
+                </div>
+           
+
                 <div id="post-card-header">
                     <p>{post.description}</p>
                 </div>

@@ -84,6 +84,7 @@ export const PostContextProvider = ({ children }: ProviderType) => {
         })
     }
 
+    
     const getCategory = (categoryName: string) => {
         setCategory(categoryName)
     }
