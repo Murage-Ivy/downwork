@@ -541,6 +541,10 @@ a {
   border-radius: 5px;
 }
 
+#heart-icon-active {
+  color: var(--tertiary-color);
+}
+
 #post-card-header {
   color: var(--secondary-color);
   text-align: justify;
@@ -761,9 +765,6 @@ a {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-}
-
-#post-form-header {
 }
 
 #post-form > input,

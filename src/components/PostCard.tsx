@@ -3,8 +3,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import CommentContainer from "./CommentContainer"
 import { PostTypeProps } from "../types"
 import { CommentProvider } from "../contexts/CommentContext"
-import { useState } from "react"
+import {  useState } from "react"
 import Option from "./Option"
+import { useAppDispatch } from "../Hooks/useTypeSelector"
+import { updateLikes } from "../reducers/AddPostSlice"
 
 type PostType = {
     post: PostTypeProps
@@ -13,10 +15,28 @@ type PostType = {
 
 const PostCard: React.FC<PostType> = ({ post }) => {
     const [visible, setVisible] = useState(false)
+    const [likes, setLikes] = useState(post.likes)
+    const [liked, setLiked] = useState(false)
 
+    const dispatch = useAppDispatch()
     const handleVisibility = () => {
         setVisible(!visible)
     }
+
+    const handleLikesUpdate = () => {
+        const newValues = {
+            likes: likes,
+            postId: post.id
+        }
+        dispatch(updateLikes(newValues))
+        setLiked(prevLiked => !prevLiked);
+        setLikes(prevLikes => {
+            const newLikes = liked ? prevLikes - 1 : prevLikes + 1;
+            return newLikes < 0 ? 0 : newLikes;
+        })
+
+    };
+
     return (
         <>
 
@@ -25,7 +45,7 @@ const PostCard: React.FC<PostType> = ({ post }) => {
                     <h2>...</h2>
                     {visible ? <Option postId={post.id} /> : null}
                 </div>
-           
+
 
                 <div id="post-card-header">
                     <p>{post.description}</p>
@@ -36,9 +56,9 @@ const PostCard: React.FC<PostType> = ({ post }) => {
                 </div>
                 <div id="post-card-footer">
                     <div id="post-card-footer-left">
-                        <FontAwesomeIcon icon={faHeart} id="heart-icon" />
+                        <FontAwesomeIcon icon={faHeart} id={liked ? "heart-icon-active" : "heart-icon"} onClick={handleLikesUpdate} />
 
-                        <span id="likes">{post.likes}</span>
+                        <span id="likes">{likes}</span>
                     </div>
                     <div id="post-card-footer-right">
                         <span id="comments">comments</span>

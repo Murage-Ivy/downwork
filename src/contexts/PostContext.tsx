@@ -88,7 +88,6 @@ export const PostContextProvider = ({ children }: ProviderType) => {
         dispatch(deletePosts(postId))
     }
 
-
     const getCategory = (categoryName: string) => {
         setCategory(categoryName)
     }
@@ -105,9 +104,7 @@ export const PostContextProvider = ({ children }: ProviderType) => {
         getCategory,
         search,
         handleSearch,
-        handleDelete
-
-
+        handleDelete,
     }
 
     return (

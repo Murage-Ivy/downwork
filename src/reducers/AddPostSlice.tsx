@@ -1,6 +1,10 @@
 import { PayloadAction, createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 import { IntialsPostType, PostTypeProps } from "../types"
 
+type UpdateProps = {
+    postId: number,
+    likes: number
+}
 export const addPost = createAsyncThunk('add/post', async (post: PostTypeProps, thunkAPI) => {
     const response = await fetch('posts', {
         method: 'POST',
@@ -26,6 +30,24 @@ export const deletePosts = createAsyncThunk('delete/posts', async (postId: numbe
     })
     if (response.ok) {
         return postId
+    }
+})
+
+
+
+export const updateLikes = createAsyncThunk('likes/post', async (newValues: UpdateProps) => {
+    const response = await fetch(`posts/${newValues.postId}`, {
+        method: 'PATCH',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ likes: newValues.likes })
+    })
+    const data = await response.json()
+    if (response.ok) {
+        console.log(newValues.likes)
+        console.log(data)
+        return data
     }
 })
 
@@ -91,6 +113,20 @@ export const addPostSlice = createSlice({
             }
             )
             .addCase(deletePosts.rejected, (state, _) => {
+                state.status = 'failed'
+            }
+            )
+            .addCase(updateLikes.pending, (state, _) => {
+                state.status = 'loading'
+            })
+            .addCase(updateLikes.fulfilled, (state, action) => {
+                state.status = 'success'
+                const post = state.posts.find(post => post.id === action.payload.id)
+                if (post) {
+                    post.likes = action.payload.likes
+                }
+            })
+            .addCase(updateLikes.rejected, (state, _) => {
                 state.status = 'failed'
             }
             )
