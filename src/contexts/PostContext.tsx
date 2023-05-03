@@ -1,5 +1,5 @@
 import { createContext } from "react";
-import { PostContextType, ProviderType } from '../types'
+import { PostContextType, PostTypes, ProviderType } from '../types'
 import { useState } from "react"
 import { useAppDispatch } from "../Hooks/useTypeSelector"
 import { PostTypeProps } from "../types"
@@ -15,15 +15,12 @@ export const PostContextProvider = ({ children }: ProviderType) => {
     const api_key = "976857633417912"
     const file_folder = "postimages"
 
-    const [post, setPost] = useState<PostTypeProps>({
-        id: 0,
+    const [post, setPost] = useState<PostTypes>({
         title: '',
         description: '',
         image_url: '',
         category: '',
         likes: 0,
-        comments: []
-
     })
 
 
@@ -74,13 +71,11 @@ export const PostContextProvider = ({ children }: ProviderType) => {
         event.preventDefault()
         dispatch(addPost(post))
         setPost({
-            id: 0,
             title: '',
             description: '',
             image_url: '',
             category: '',
             likes: 0,
-            comments: []
         })
     }
 

@@ -36,19 +36,15 @@ export type PostTypeProps = {
     image_url: string,
     category: string,
     likes: number,
-    comments: CommentType[]
 }
 
 export type PostTypes = {
-    id: number
+    // id: number
     title: string,
     description: string,
     image_url: string,
     category: string,
     likes: number,
-    comments: CommentType[]
-
-
 }
 
 export type CommentType = {
@@ -64,7 +60,7 @@ export type IntialsPostType = {
     success: boolean
 }
 export type PostContextType = {
-    post: PostTypeProps
+    post: PostTypes
     category: String
     search: string
     handleSearch: (event: React.ChangeEvent<HTMLInputElement>) => void

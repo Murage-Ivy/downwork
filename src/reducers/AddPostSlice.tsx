@@ -1,11 +1,11 @@
 import { PayloadAction, createAsyncThunk, createSlice } from "@reduxjs/toolkit"
-import { IntialsPostType, PostTypeProps } from "../types"
+import { IntialsPostType, PostTypeProps, PostTypes } from "../types"
 
 type UpdateProps = {
     postId: number,
     likes: number
 }
-export const addPost = createAsyncThunk('add/post', async (post: PostTypeProps, thunkAPI) => {
+export const addPost = createAsyncThunk('add/post', async (post: PostTypes, thunkAPI) => {
     const response = await fetch('posts', {
         method: 'POST',
         headers: {
@@ -36,7 +36,7 @@ export const deletePosts = createAsyncThunk('delete/posts', async (postId: numbe
 
 
 export const updateLikes = createAsyncThunk('likes/post', async (newValues: UpdateProps) => {
-    const response = await fetch(`posts/${newValues.postId}`, {
+    const response = await fetch(`/posts/${newValues.postId}/likes`, {
         method: 'PATCH',
         headers: {
             'Content-Type': 'application/json'
